@@ -1,0 +1,41 @@
+# server:
+#   port: 8080
+# logging:
+#   level:
+#     root: INFO
+#     org.springframework.web: INFO
+#     org.springframework.security: INFO
+# #    org.springframework.boot.autoconfigure: DEBUG
+
+security:
+  oauth2:
+    client:
+      clientId: e46ca26359ef71b5285c
+      clientSecret: 043750121445470d60ad1b43e85b94376f48062b
+      accessTokenUri: https://github.com/login/oauth/access_token
+      userAuthorizationUri: https://github.com/login/oauth/authorize
+      clientAuthenticationScheme: form
+      # redirectUriTemplate: http://localhost:8080/onur
+    resource:
+      user-info-uri: https://api.github.com/user
+      prefer-token-info: false
+# spring.security.oauth2.client.registration.github.client-id=
+# spring.security.oauth2.client.registration.github.client-secret=
+
+# spring:
+#   thymeleaf:
+#     cache: false
+#   security:
+#     basic:
+#       enabled: false
+#     oauth2:
+#       client:
+#         registration:
+#           github:
+#             client-id:
+#             :
+#       accessTokenUri: https://github.com/login/oauth/access_token
+#       userAuthorizationUri: https://github.com/login/oauth/authorize
+#       redirectUriTemplate: 'http://localhost:8080/github/v1/oauth2/callback'
+#     resource:
+#       userInfoUri: https://api.github.com/user
