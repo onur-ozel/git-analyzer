@@ -1,0 +1,104 @@
+<div class="card shadow">
+  <div class="card-header card-header py-2 px-3">
+    <h5 class="m-0"><i class="fas fa-radiation-alt mr-2"></i>Top {{issues?.length}} Most Reacted Issues</h5>
+  </div>
+  <div class="card-body pb-0">
+    <h6 class="card-subtitle mb-2 text-muted">Total {{totalIssueCount}} Isssue</h6>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col-auto">#</th>
+          <!-- <th scope="col-auto"></th> -->
+          <th scope="col-auto">Issue</th>
+          <th scope="col-auto">Created By</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let issue of issues; let i = index">
+          <tr>
+            <th class="align-middle"
+                scope="row">{{i+1}}</th>
+            <!-- <td class="align-middle">
+              <button class="btn btn-primary rounded-circle p-0"
+                      style="width: 25px;height: 25px;"
+                      type="button"
+                      data-toggle="collapse"
+                      [attr.data-target]="'#issue_row_detail_'+(i+1)"
+                      aria-expanded="false"
+                      aria-controls="row_detail">
+                <div #plus
+                     (click)="plus.style.display='none'; minus.style.display='block'">
+                  <i class="fas fa-plus"></i>
+                </div>
+                <div #minus
+                     (click)="minus.style.display='none'; plus.style.display='block'"
+                     style="display: none;">
+                  <i class="fas fa-minus"></i>
+                </div>
+              </button>
+
+            </td> -->
+            <td class="align-middle"><a href="{{issue.url}}">{{issue.title}}</a> </td>
+
+            <td class="align-middle">
+              <img class="rounded-circle img-thumbnail mr-2"
+                   style="width: 40px;height: 40px;"
+                   src="{{issue.user.avatarUrl}}"
+                   alt="">
+              <a href="{{issue.user.url}}">{{issue.user.name}}
+              </a>
+            </td>
+          </tr>
+          <!-- <tr style="border:0px">
+            <td class="p-0"
+                colspan="5">
+              <div class="collapse container-fluid"
+                   id="issue_row_detail_{{i+1}}">
+                <div class="row pt-3 px-3">
+                  <div class="col-auto p-0 mr-2"
+                       *ngIf=issue.isLocked>
+                    <span class="bg-danger text-white rounded p-1">
+                      <i class="fas fa-exclamation-circle"></i>
+                      Locked
+                    </span>
+                  </div>
+                  <div class="col p-0">
+                    <h6>
+                      <span>
+                        {{issue.title}}
+                      </span>
+                      <span class="text-muted">
+                        #{{ issue.issiueNo}}
+                      </span>
+                      <span class="font-weight-light">
+                        opened on {{issue.createdAt | date}}
+                      </span>
+                    </h6>
+                  </div>
+                </div>
+                <div class="row pt-1 px-3">
+                  <div class="col p-0">
+                    <span class="text-muted">
+                      {{issue.user.name}} updated this issue on {{issue.updatedAt | date}} .
+                      {{issue.commentCount}} comments
+                    </span>
+
+
+                  </div>
+                </div>
+                <hr>
+                <div class="row pb-3 px-3 overflow-auto"
+                     style="white-space: pre-line;max-height: 250px;">
+                  {{issue.body}}
+                </div>
+              </div>
+            </td>
+          </tr> -->
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer text-muted">
+    2019.08.03 15:03
+  </div>
+</div>
