@@ -12,10 +12,9 @@
     },
     {
       "type": "java",
-      "name": "Debug (Launch)-DemoApplication<git-analyzer-api>",
+      "name": "Debug (Launch)-App",
       "request": "launch",
-      "mainClass": "src.main.java.com.onur.scout24.gitanalyzerapi.DemoApplication",
-      "projectName": "git-analyzer-api"
+      "mainClass": "com.onur.scout24.App"
     }
   ]
 }
