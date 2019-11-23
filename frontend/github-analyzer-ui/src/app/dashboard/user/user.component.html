@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="row">
+    <img style="width: 200px;height:200px"
+         src="{{authenticatedUser.avatarUrl}}"
+         alt=""
+         class="img-fluid rounded">
+  </div>
+  <div class="row">
+    <a href="{{authenticatedUser.url}}">
+      <h3>
+        {{authenticatedUser.name}}
+      </h3>
+    </a>
+  </div>
+  <div class="row">
+    <h5 class="text-muted font-weight-normal">
+      {{authenticatedUser.login}}
+    </h5>
+  </div>
+  <div class="row"
+       *ngIf=authenticatedUser.bio>
+    <span>
+      {{authenticatedUser.bio}}
+    </span>
+  </div>
+  <div class="row"
+       *ngIf=authenticatedUser.company>
+    <div class="col-1 p-0 text-center">
+      <i class="fas fa-user-friends"></i>
+    </div>
+    <div class="col">
+      <span>
+        {{authenticatedUser.company}}
+      </span>
+    </div>
+  </div>
+  <div class="row"
+       *ngIf=authenticatedUser.location>
+    <div class="col-1 p-0 text-center">
+      <i class="fas fa-map-marker"></i>
+    </div>
+    <div class="col">
+      <span>
+        {{authenticatedUser.location}}
+      </span>
+    </div>
+  </div>
+  <div class="row"
+       *ngIf=authenticatedUser.email>
+    <div class="col-1 p-0 text-center">
+      <i class="as fa-envelope"></i>
+    </div>
+    <div class="col">
+      <span>
+        {{authenticatedUser.email}}
+      </span>
+    </div>
+  </div>
+  <div class="row"
+       *ngIf=authenticatedUser.blog>
+    <div class="col-1 p-0 text-center">
+      <i class="fas fa-blog"></i>
+    </div>
+    <div class="col">
+      <a href="{{authenticatedUser.blog}}">{{authenticatedUser.blog}}</a>
+    </div>
+  </div>
+</div>

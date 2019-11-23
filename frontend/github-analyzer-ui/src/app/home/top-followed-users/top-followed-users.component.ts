@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../top-reacted-issues/user.model';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-top-followed-users',
@@ -14,18 +14,11 @@ export class TopFollowedUsersComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+
     this.http.get('http://localhost:8080/github/v1/statistics/top-followed-users')
       .subscribe((data: any) => {
-        this.totalUserCount = data.total_count;
-        this.users = data.items.map(userItem => {
-          const user = new User();
-          user.name = userItem.login;
-          user.id = userItem.id;
-          user.url = userItem.html_url;
-          user.avatarUrl = userItem.avatar_url;
-
-          return user;
-        });
+        this.totalUserCount = data.totalCount;
+        this.users = data.items;
       });
   }
 }
