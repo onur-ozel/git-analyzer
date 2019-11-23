@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { User } from '../models/user.model';
 export class AuthenticationService {
   private authenticatedUser: User;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.authenticatedUser = new User();
 
     this.authenticatedUser.id = 4484836;
@@ -31,7 +32,10 @@ export class AuthenticationService {
   }
 
   login() {
-    console.log('login');
+    this.http.get('http://localhost:8080/login')
+      .subscribe((data: any) => {
+        console.log(data);
+      });
   }
 
   logout() {

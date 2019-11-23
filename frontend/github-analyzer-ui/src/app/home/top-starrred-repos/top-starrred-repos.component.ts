@@ -15,9 +15,9 @@ export class TopStarrredReposComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('http://localhost:8080/github/v1/statistics/top-reacted-issues')
+    this.http.get('http://localhost:8080/github/v1/statistics/top-starred-repos')
       .subscribe((data: any) => {
-        this.totalRepositoryCount = data.total_count;
+        this.totalRepositoryCount = data.totalCount;
         this.repositories = data.items;
       });
   }
