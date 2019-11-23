@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8" />
     <title></title>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $.get("/user", function (data) {
+            $("#user").html(data.userAuthentication.details.name);
+            $(".unauthenticated").hide()
+            $(".authenticated").show()
+        });
+        function logout() {
+            $.post("/logout", function () {
+                $("#user").html('');
+                $(".unauthenticated").show();
+                $(".authenticated").hide();
+            })
+            return true;
+        }
+    </script>
 </head>
+
 <body>
-<p>
-    <span th:text="${hello}">Hello!</span>
-</p>
+    <p>
+        Login With Github <a href="/login">click here</a>
+    </p>
 </body>
+
 </html>

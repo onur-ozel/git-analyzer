@@ -1,4 +1,4 @@
-import { User } from './user.model';
+import { User } from 'src/app/shared/models/user.model';
 
 export class Issue {
   title: string;
