@@ -5,6 +5,13 @@ spring:
   redis:
     host: localhost
     port: 6379
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/github?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: Strong_Passw0rd
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate.ddl-auto: update
 security:
   oauth2:
     client:
