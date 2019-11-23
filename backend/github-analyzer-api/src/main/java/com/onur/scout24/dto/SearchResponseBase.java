@@ -1,5 +1,6 @@
 package com.onur.scout24.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 @JsonPropertyOrder({ "totalCount", "incompleteResults", "items" })
-public abstract class SearchResponseBase<E> {
+public abstract class SearchResponseBase<E> implements Serializable {
   private Long totalCount;
   private Boolean incompleteResults;
   private List<E> items;
