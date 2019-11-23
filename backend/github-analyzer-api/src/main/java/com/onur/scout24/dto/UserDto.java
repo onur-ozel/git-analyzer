@@ -1,5 +1,6 @@
 package com.onur.scout24.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
@@ -7,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class UserDto {
+public class UserDto implements Serializable {
   private Long id;
   private String login;
   private String name;

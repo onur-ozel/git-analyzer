@@ -1,5 +1,6 @@
 package com.onur.scout24.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 /**
  * IssueDto
  */
-public class IssueDto {
+public class IssueDto implements Serializable {
   private String title;
   private String body;
   private Integer commentCount;
