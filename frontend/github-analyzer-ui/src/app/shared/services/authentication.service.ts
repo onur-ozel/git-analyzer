@@ -38,6 +38,22 @@ export class AuthenticationService {
       });
   }
 
+  authTest() {
+    this.http.get('http://localhost:8080/auth-required')
+      .subscribe((data: any) => {
+        console.log(data);
+      });
+
+  }
+
+  authUser() {
+    this.http.get('http://localhost:8080/user')
+      .subscribe((data: any) => {
+        console.log(data);
+      });
+
+  }
+
   logout() {
     console.log('logout');
   }

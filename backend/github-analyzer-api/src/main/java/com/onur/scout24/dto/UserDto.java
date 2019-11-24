@@ -4,11 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class UserDto implements Serializable {
+  private static final long serialVersionUID = 1L;
   private Long id;
   private String login;
   private String name;

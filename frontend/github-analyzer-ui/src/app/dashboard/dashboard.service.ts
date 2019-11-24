@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { User } from '../shared/models/user.model';
 import { Repository } from '../shared/models/repository.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
-  constructor() {
+  constructor(private http: HttpClient) {
 
   }
 
@@ -46,5 +47,11 @@ export class DashboardService {
     repos.push(repo2);
 
     return repos;
+  }
+
+  public searchRepositories(userName: string, repositoryName: string) {
+    return this.http
+      .get('https://api.github.com/search/repositories?q=' + repositoryName + ' in:name+user:' + userName + '&sort=stars&order=desc');
+
   }
 }
