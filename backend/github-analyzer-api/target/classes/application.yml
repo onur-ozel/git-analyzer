@@ -1,11 +1,20 @@
 # See http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+server.port: 8080
 spring:
   jackson.serialization.indent_output: true
   cache.type: redis
   redis:
     host: localhost
     port: 6379
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/github?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT
+    username: root
+    password: Strong_Passw0rd
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate.ddl-auto: update
 security:
+  oauth2.resource.filter-order: 3
   oauth2:
     client:
       client-id: e46ca26359ef71b5285c
@@ -13,5 +22,12 @@ security:
       accessTokenUri: https://github.com/login/oauth/access_token
       userAuthorizationUri: https://github.com/login/oauth/authorize
       clientAuthenticationScheme: form
+      # preEstablishedRedirectUri: http://localhost:8080/auth-success
+      # useCurrentUri: false
     resource:
       userInfoUri: https://api.github.com/user
+apiUrl:
+  root: https://api.github.com
+  top-starred-repos: https://api.github.com/search/repositories?q=is:public&sort=stars&order=desc&page=1&per_page=5
+  top-reacted-issues: https://api.github.com/search/issues?q=is:open is:issue&sort=reactions&order=desc&page=1&per_page=5
+  top-followed-users: https://api.github.com/search/users?q=followers:>=0&sort=followers&order=desc&page=1&per_page=5

@@ -1,11 +1,10 @@
 package com.onur.scout24.dto;
 
-import java.io.Serializable;
-
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class RepositoryDto implements Serializable {
+public class RepositoryDto extends BaseDto {
+  private static final long serialVersionUID = 1L;
   private Long id;
   private String name;
   private String fullName;

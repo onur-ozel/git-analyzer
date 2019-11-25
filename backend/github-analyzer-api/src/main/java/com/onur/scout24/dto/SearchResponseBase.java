@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 @JsonPropertyOrder({ "totalCount", "incompleteResults", "items" })
 public abstract class SearchResponseBase<E> implements Serializable {
+  private static final long serialVersionUID = 1L;
   private Long totalCount;
   private Boolean incompleteResults;
   private List<E> items;

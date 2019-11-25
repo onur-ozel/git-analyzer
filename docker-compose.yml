@@ -4,3 +4,13 @@ services:
     image: redis:latest
     ports:
       - '6379:6379'
+  mysql:
+    image: mysql:8.0.18
+    environment:
+      - MYSQL_ROOT_PASSWORD=Strong_Passw0rd
+      - MYSQL_USER=user
+    ports:
+      - '3306:3306'
+# mysql --user=root --password=Strong_Passw0rd
+# use github;
+# show tables;
