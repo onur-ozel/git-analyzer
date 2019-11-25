@@ -1,8 +1,11 @@
 package com.onur.scout24.controller;
 
-import com.onur.scout24.dto.RepositoryDto;
-import com.onur.scout24.model.AnalyzedRepository;
-import com.onur.scout24.service.AnalyzedItemService;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
+import com.onur.scout24.dto.RepoDto;
+import com.onur.scout24.model.AnalyzedRepo;
+import com.onur.scout24.service.AnalyzeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -20,31 +23,44 @@ import org.springframework.web.bind.annotation.RestController;
 public class AnalyzeController {
 
   @Autowired
-  AnalyzedItemService service;
+  AnalyzeService service;
 
   @RequestMapping(value = "/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-  public AnalyzedRepository analyze(@RequestBody RepositoryDto repository) {
-    AnalyzedRepository a = new AnalyzedRepository();
-    a.setOwner(repository.getOwner().getName());
-    a.setName(repository.getName());
+  public AnalyzedRepo analyze(@RequestBody RepoDto repo) throws InterruptedException, ExecutionException {
 
-    service.add(a);
+    CompletableFuture<AnalyzedRepo> gitRepoDetail = service.getGitRepoDetail(repo.getOwner().getLogin(),
+        repo.getName());
+    CompletableFuture<Integer> pullCountFuture = service.getGitRepoPullCount(repo.getOwner().getLogin(),
+        repo.getName());
+    CompletableFuture<Integer> commitCountFuture = service.getGitRepoCommitCount(repo.getOwner().getLogin(),
+        repo.getName());
+    CompletableFuture<Integer> contributerCountFuture = service.getGitRepoContributerCount(repo.getOwner().getLogin(),
+        repo.getName());
 
-    return a;
+    AnalyzedRepo repoDetail = new AnalyzedRepo();
+
+    repoDetail = gitRepoDetail.get();
+    repoDetail.setPullsCount(pullCountFuture.get());
+    repoDetail.setCommitsCount(commitCountFuture.get());
+    repoDetail.setContributersCount(contributerCountFuture.get());
+
+    service.add(repoDetail);
+
+    return repoDetail;
   }
 
   // @Cacheable(value = "analyzed_repositories")
   @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Iterable<AnalyzedRepository>> getAll() {
-    Iterable<AnalyzedRepository> response = service.getAll();
+  public ResponseEntity<Iterable<AnalyzedRepo>> getAll() {
+    Iterable<AnalyzedRepo> response = service.getAll();
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
   @Cacheable(value = "analyzed_repository", key = "#id")
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<AnalyzedRepository> getById(@PathVariable(name = "id", required = true) Long id) {
-    AnalyzedRepository repository = service.getById(id);
+  public ResponseEntity<AnalyzedRepo> getById(@PathVariable(name = "id", required = true) Long id) {
+    AnalyzedRepo repo = service.getById(id);
 
-    return new ResponseEntity<>(repository, HttpStatus.OK);
+    return new ResponseEntity<>(repo, HttpStatus.OK);
   }
 }

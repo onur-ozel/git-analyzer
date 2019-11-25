@@ -13,15 +13,15 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "repository")
-public class AnalyzedRepository implements Serializable {
+@Table(name = "analyzed_repo")
+public class AnalyzedRepo implements Serializable {
   private static final long serialVersionUID = 1L;
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   private String name;
-  @Column(name = "repository_id")
-  private Long repositoryId;
+  @Column(name = "repo_id")
+  private Long repoId;
   @Column(name = "full_name")
   private String fullName;
   @Column(name = "is_private")

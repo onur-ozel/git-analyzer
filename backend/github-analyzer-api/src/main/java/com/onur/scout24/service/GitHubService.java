@@ -2,8 +2,8 @@ package com.onur.scout24.service;
 
 import java.net.URI;
 
-import com.onur.scout24.dto.RepositoryDto;
-import com.onur.scout24.dto.SearchRepositoryResponse;
+import com.onur.scout24.dto.RepoDto;
+import com.onur.scout24.dto.SearchRepoResponse;
 import com.onur.scout24.dto.UserDto;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -16,12 +16,12 @@ public class GitHubService {
     @Value("${apiUrl.root}")
     private String gitHubApiUrl;
 
-    public RepositoryDto[] getRepositories(String userName) {
-        URI repositoryUri = UriComponentsBuilder.fromUriString("{apiUrl}/users/{userName}/repos")
+    public RepoDto[] getRepos(String userName) {
+        URI repoUri = UriComponentsBuilder.fromUriString("{apiUrl}/users/{userName}/repos")
                 .buildAndExpand(gitHubApiUrl, userName).toUri();
 
         RestTemplate restTemplate = new RestTemplate();
-        RepositoryDto[] response = restTemplate.getForObject(repositoryUri, RepositoryDto[].class);
+        RepoDto[] response = restTemplate.getForObject(repoUri, RepoDto[].class);
 
         return response;
     }
@@ -47,13 +47,14 @@ public class GitHubService {
         return response;
     }
 
-    public SearchRepositoryResponse searchRepositories(String userName, String repositoryName) {
-        URI searchRepoUri = UriComponentsBuilder.fromUriString(
-                "{apiUrl}/search/repositories?q={repositoryName}  in:name user:{userName}&sort=stars&order=desc")
-                .buildAndExpand(gitHubApiUrl, repositoryName, userName).toUri();
+    public SearchRepoResponse searchRepositories(String userName, String repoName) {
+        URI searchRepoUri = UriComponentsBuilder
+                .fromUriString(
+                        "{apiUrl}/search/repositories?q={repoName}  in:name user:{userName}&sort=stars&order=desc")
+                .buildAndExpand(gitHubApiUrl, repoName, userName).toUri();
 
         RestTemplate restTemplate = new RestTemplate();
-        SearchRepositoryResponse response = restTemplate.getForObject(searchRepoUri, SearchRepositoryResponse.class);
+        SearchRepoResponse response = restTemplate.getForObject(searchRepoUri, SearchRepoResponse.class);
 
         return response;
     }

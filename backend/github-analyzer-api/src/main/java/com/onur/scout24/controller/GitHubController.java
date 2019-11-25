@@ -2,8 +2,8 @@ package com.onur.scout24.controller;
 
 import java.security.Principal;
 
-import com.onur.scout24.dto.RepositoryDto;
-import com.onur.scout24.dto.SearchRepositoryResponse;
+import com.onur.scout24.dto.RepoDto;
+import com.onur.scout24.dto.SearchRepoResponse;
 import com.onur.scout24.dto.UserDto;
 import com.onur.scout24.service.GitHubService;
 
@@ -23,16 +23,16 @@ public class GitHubController {
 
   @Cacheable(value = "repos")
   @RequestMapping(value = "/repos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public RepositoryDto[] getRepos(Principal principal) {
-    return service.getRepositories("onur-ozel");
+  public RepoDto[] getRepos(Principal principal) {
+    return service.getRepos("onur-ozel");
     // return service.getRepositories(principal.getName());
   }
 
   @Cacheable(value = "search-repo")
   @RequestMapping(value = "/search-repo", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public SearchRepositoryResponse getRepos(@RequestParam(name = "userName", required = true) String userName,
-      @RequestParam(name = "repositoryName", required = true) String repositoryName) {
-    return service.searchRepositories(userName, repositoryName);
+  public SearchRepoResponse getRepos(@RequestParam(name = "userName", required = true) String userName,
+      @RequestParam(name = "repoName", required = true) String repoName) {
+    return service.searchRepositories(userName, repoName);
   }
 
   @Cacheable(value = "followers")

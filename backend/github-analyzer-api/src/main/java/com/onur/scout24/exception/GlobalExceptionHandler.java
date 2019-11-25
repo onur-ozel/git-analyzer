@@ -1,4 +1,4 @@
-package com.onur.scout24.config.exception;
+package com.onur.scout24.exception;
 
 import java.util.UUID;
 

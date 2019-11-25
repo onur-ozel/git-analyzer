@@ -3,7 +3,7 @@ package com.onur.scout24.dto;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class RepositoryDto extends BaseDto {
+public class RepoDto extends BaseDto {
   private static final long serialVersionUID = 1L;
   private Long id;
   private String name;

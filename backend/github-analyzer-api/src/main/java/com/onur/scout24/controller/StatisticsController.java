@@ -1,7 +1,7 @@
 package com.onur.scout24.controller;
 
 import com.onur.scout24.dto.SearchIssueResponse;
-import com.onur.scout24.dto.SearchRepositoryResponse;
+import com.onur.scout24.dto.SearchRepoResponse;
 import com.onur.scout24.dto.SearchUserResponse;
 import com.onur.scout24.service.StatisticService;
 
@@ -20,7 +20,7 @@ public class StatisticsController {
 
   @Cacheable(value = "top-starred-repos")
   @RequestMapping(value = "/top-starred-repos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public SearchRepositoryResponse topStarredRepos() {
+  public SearchRepoResponse topStarredRepos() {
     return service.topStarredRepos();
   }
 
