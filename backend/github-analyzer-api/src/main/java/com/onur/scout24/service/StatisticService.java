@@ -4,34 +4,37 @@ import com.onur.scout24.dto.SearchIssueResponse;
 import com.onur.scout24.dto.SearchRepositoryResponse;
 import com.onur.scout24.dto.SearchUserResponse;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
 public class StatisticService {
-    public SearchRepositoryResponse topStarredRepos() {
-        final String uri = "https://api.github.com/search/repositories?q=is:public&sort=stars&order=desc&page=1&per_page=5";
+    @Value("${apiUrl.top-starred-repos}")
+    private String topStarredReposUri;
+    @Value("${apiUrl.top-reacted-issues}")
+    private String topReactedIssuesUri;
+    @Value("${apiUrl.top-followed-users}")
+    private String topFollowedUsersUri;
 
+    public SearchRepositoryResponse topStarredRepos() {
         final RestTemplate restTemplate = new RestTemplate();
-        final SearchRepositoryResponse response = restTemplate.getForObject(uri, SearchRepositoryResponse.class);
+        final SearchRepositoryResponse response = restTemplate.getForObject(topStarredReposUri,
+                SearchRepositoryResponse.class);
 
         return response;
     }
 
     public SearchIssueResponse topReactedIssues() {
-        final String uri = "https://api.github.com/search/issues?q=is:open is:issue&sort=reactions&order=desc&page=1&per_page=5";
-
         RestTemplate restTemplate = new RestTemplate();
-        final SearchIssueResponse response = restTemplate.getForObject(uri, SearchIssueResponse.class);
+        SearchIssueResponse response = restTemplate.getForObject(topReactedIssuesUri, SearchIssueResponse.class);
 
         return response;
     }
 
     public SearchUserResponse topFollowedUsers() {
-        final String uri = "https://api.github.com/search/users?q=followers:>=0&sort=followers&order=desc&page=1&per_page=5";
-
-        final RestTemplate restTemplate = new RestTemplate();
-        final SearchUserResponse response = restTemplate.getForObject(uri, SearchUserResponse.class);
+        RestTemplate restTemplate = new RestTemplate();
+        SearchUserResponse response = restTemplate.getForObject(topFollowedUsersUri, SearchUserResponse.class);
 
         return response;
     }

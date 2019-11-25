@@ -1,0 +1,68 @@
+<form class="form-inline" [formGroup]="searchRepositoryForm" (ngSubmit)="onSubmit()">
+  <div class="form-group mb-2">
+    <label for="gitHubUser" class="sr-only">User Name</label>
+    <input type="text" class="form-control" id="gitHubUser" placeholder="User Name" formControlName="userName">
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="gitHubRepo" class="sr-only">Repository Name</label>
+    <input type="text" class="form-control" id="gitHubRepo" placeholder="Repository Name"
+      formControlName="repositoryName">
+  </div>
+  <button type="submit" data-toggle="modal" data-target="#exampleModal" [disabled]="!searchRepositoryForm.valid"
+    class="btn btn-primary mb-2">Search</button>
+</form>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card shadow">
+          <div class="card-header card-header py-2 px-3">
+            <h5 class="m-0"><i class="fas fa-star mr-2"></i>Search Results</h5>
+          </div>
+          <div class="card-body pb-0">
+            <h6 class="card-subtitle mb-2 text-muted">Total {{totalFoundedRepositoryCount}} Repository</h6>
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th scope="col-auto">#</th>
+                  <th scope="col-auto">Name</th>
+                  <th scope="col-auto">Owner</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let repository of foundedRepositories; let i = index">
+                  <tr>
+                    <th class="align-middle" scope="row">{{i+1}}</th>
+
+                    <td class="align-middle"><a href="{{repository.url}}">{{repository.fullName}}</a> <span
+                        class="badge badge-primary ml-2">{{repository.starGazersCount}}</span> </td>
+
+                    <td class="align-middle">
+                      <img class="rounded-circle img-thumbnail mr-2" style="width: 40px;height: 40px;"
+                        src="{{repository.owner.avatarUrl}}" alt="">
+                      <a href="{{repository.owner.url}}">{{repository.owner.login}}
+                      </a>
+                    </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

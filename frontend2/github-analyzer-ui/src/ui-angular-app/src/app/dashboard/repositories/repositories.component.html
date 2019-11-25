@@ -1,0 +1,258 @@
+<div class="card shadow" style="width: 750px;">
+  <div class="card-header card-header py-2 px-3">
+    <h5 class="m-0"><i class="fas fa-star mr-2"></i>Total {{repositories?.length}} Repository</h5>
+  </div>
+  <div class="card-body pb-0">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col-auto">#</th>
+          <th scope="col-auto"></th>
+          <th scope="col">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let repository of repositories; let i = index">
+          <tr>
+            <th class="align-middle" scope="row">{{i+1}}</th>
+            <td class="align-middle">
+              <button class="btn btn-primary rounded-circle p-0" style="width: 25px;height: 25px;" type="button"
+                data-toggle="collapse" [attr.data-target]="'#issue_row_detail_'+(i+1)" aria-expanded="false"
+                aria-controls="row_detail">
+                <div #plus (click)="plus.style.display='none'; minus.style.display='block'">
+                  <i class="fas fa-plus"></i>
+                </div>
+                <div #minus (click)="minus.style.display='none'; plus.style.display='block'" style="display: none;">
+                  <i class="fas fa-minus"></i>
+                </div>
+              </button>
+            </td>
+            <td class="align-middle"><a href="{{repository.url}}">{{repository.fullName}}</a></td>
+          </tr>
+          <tr style="border:0px">
+            <td class="p-0" colspan="5">
+              <div class="collapse container-fluid" id="issue_row_detail_{{i+1}}">
+                <div class="row pt-3 px-3">
+                  <div class="col-auto p-0 mr-2" *ngIf=repository.isForked>
+                    <span class="bg-info text-white rounded p-2">
+                      <i class="fas fa-exclamation-circle"></i>
+                      Forked
+                    </span>
+                  </div>
+                  <div class="col-auto p-0 mr-2">
+                    <span class="bg-secondary text-white rounded p-2">Watchers<span
+                        class="badge badge-primary ml-2">{{repository.watchersCount}}</span></span>
+                  </div>
+                  <div class="col-auto p-0 mr-2">
+                    <span class="bg-secondary text-white rounded p-2">Stars<span
+                        class="badge badge-primary ml-2">{{repository.starGazersCount}}</span></span>
+                  </div>
+                  <div class="col-auto p-0 mr-2">
+                    <span class="bg-secondary text-white rounded p-2">Forks<span
+                        class="badge badge-primary ml-2">{{repository.forksCount}}</span></span>
+                  </div>
+                  <div class="col-auto p-0 mr-2" *ngIf=repository.language>
+                    <span class="bg-primary text-white rounded p-2">{{repository.language}}</span>
+                  </div>
+                </div>
+                <div class="row pt-3 px-3">
+                  <div class="col p-0">
+                    <span>
+                      {{repository.description}}
+                    </span>
+                  </div>
+                </div>
+                <hr>
+                <div class="row pb-3 px-3 overflow-auto" style="white-space: pre-line;max-height: 350px;">
+                  <h4>README.md</h4>
+                  <div id="readme" class="instapaper_body md" data-path="README.md">
+                    <article class="markdown-body entry-content p-3" itemprop="text">
+                      <h1>
+                        <a id="user-content-httpsgithubcomdocker-librarycassandra" class="anchor" aria-hidden="true"
+                          href="#httpsgithubcomdocker-librarycassandra">
+                          <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                              d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+                            </path>
+                          </svg>
+                        </a>
+                        <a
+                          href="https://github.com/docker-library/cassandra">https://github.com/docker-library/cassandra</a>
+                      </h1>
+                      <h2>
+                        <a id="user-content-maintained-by-the-docker-community" class="anchor" aria-hidden="true"
+                          href="#maintained-by-the-docker-community">
+                          <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                              d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+                            </path>
+                          </svg>
+                        </a>Maintained by:
+                        <a href="https://github.com/docker-library/cassandra">the Docker Community</a>
+                      </h2>
+                      <p>This is the Git repo of the
+                        <a href="https://docs.docker.com/docker-hub/official_repos/" rel="nofollow">Docker "Official
+                          Image"</a> for
+                        <a href="https://hub.docker.com/_/cassandra/" rel="nofollow">cassandra</a> (not to be confused
+                        with any official cassandra image provided
+                        by cassandra
+                        upstream). See
+                        <a href="https://hub.docker.com/_/cassandra/" rel="nofollow">the Docker Hub page</a> for the
+                        full readme on how to use this Docker image
+                        and for information
+                        regarding contributing and issues.
+                      </p>
+                      <p>The
+                        <a href="https://hub.docker.com/_/cassandra/" rel="nofollow">full description from Docker
+                          Hub</a> is generated over in
+                        <a href="https://github.com/docker-library/docs">docker-library/docs</a>, specifically in
+                        <a
+                          href="https://github.com/docker-library/docs/tree/master/cassandra">docker-library/docs/cassandra</a>.
+                      </p>
+                      <h2>
+                        <a id="user-content-see-a-change-merged-here-that-doesnt-show-up-on-docker-hub-yet"
+                          class="anchor" aria-hidden="true"
+                          href="#see-a-change-merged-here-that-doesnt-show-up-on-docker-hub-yet">
+                          <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                              d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+                            </path>
+                          </svg>
+                        </a>See a change merged here that doesn't show up on Docker Hub yet?
+                      </h2>
+                      <p>Check
+                        <a href="https://github.com/docker-library/official-images/blob/master/library/cassandra">the
+                          "library/cassandra"
+                          manifest file in the docker-library/official-images repo</a>, especially
+                        <a href="https://github.com/docker-library/official-images/labels/library%2Fcassandra">PRs with
+                          the
+                          "library/cassandra" label on that repo</a>.
+                      </p>
+                      <p>For more information about the official images process, see the
+                        <a href="https://github.com/docker-library/official-images/blob/master/README.md">docker-library/official-images
+                          readme</a>.
+                      </p>
+                      <hr>
+                      <ul>
+                        <li>
+                          <a href="https://travis-ci.org/docker-library/cassandra/branches" rel="nofollow">Travis CI:
+                            <br>
+                            <img
+                              src="https://camo.githubusercontent.com/a410d2dd7e349834df01ea19102ac1dcb20d64cf/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f646f636b65722d6c6962726172792f63617373616e6472612f6d61737465722e737667"
+                              alt="build status badge"
+                              data-canonical-src="https://img.shields.io/travis/docker-library/cassandra/master.svg"
+                              style="max-width:100%;">
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://doi-janky.infosiftr.net/job/update.sh/job/cassandra" rel="nofollow">Automated
+                            <code>update.sh</code>:
+                            <br>
+                            <img
+                              src="https://camo.githubusercontent.com/a2b458b5570ed3edeb5a86e52d713bd5ff8f271c/68747470733a2f2f646f692d6a616e6b792e696e666f73696674722e6e65742f6a6f622f7570646174652e73682f6a6f622f63617373616e6472612f62616467652f69636f6e"
+                              alt="build status badge"
+                              data-canonical-src="https://doi-janky.infosiftr.net/job/update.sh/job/cassandra/badge/icon"
+                              style="max-width:100%;">
+                          </a>
+                        </li>
+                      </ul>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th align="center">Build</th>
+                            <th align="center">Status</th>
+                            <th align="center">Badges</th>
+                            <th align="center">(per-arch)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td align="center">
+                              <a href="https://doi-janky.infosiftr.net/job/multiarch/job/amd64/job/cassandra"
+                                rel="nofollow">
+                                <code>amd64</code>
+                                <br>
+                                <img
+                                  src="https://camo.githubusercontent.com/87bd740a216f1d3bdfd370823bb2522402e91e8d/68747470733a2f2f646f692d6a616e6b792e696e666f73696674722e6e65742f6a6f622f6d756c7469617263682f6a6f622f616d6436342f6a6f622f63617373616e6472612f62616467652f69636f6e"
+                                  alt="build status badge"
+                                  data-canonical-src="https://doi-janky.infosiftr.net/job/multiarch/job/amd64/job/cassandra/badge/icon"
+                                  style="max-width:100%;">
+                              </a>
+                            </td>
+                            <td align="center">
+                              <a href="https://doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/cassandra"
+                                rel="nofollow">
+                                <code>arm64v8</code>
+                                <br>
+                                <img
+                                  src="https://camo.githubusercontent.com/cd81d16ea32652c1fdada7758ce82dc379a37664/68747470733a2f2f646f692d6a616e6b792e696e666f73696674722e6e65742f6a6f622f6d756c7469617263682f6a6f622f61726d363476382f6a6f622f63617373616e6472612f62616467652f69636f6e"
+                                  alt="build status badge"
+                                  data-canonical-src="https://doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/cassandra/badge/icon"
+                                  style="max-width:100%;">
+                              </a>
+                            </td>
+                            <td align="center">
+                              <a href="https://doi-janky.infosiftr.net/job/multiarch/job/i386/job/cassandra"
+                                rel="nofollow">
+                                <code>i386</code>
+                                <br>
+                                <img
+                                  src="https://camo.githubusercontent.com/6b316cf43b9782621bcfd1feaed82377e2f1a8bb/68747470733a2f2f646f692d6a616e6b792e696e666f73696674722e6e65742f6a6f622f6d756c7469617263682f6a6f622f693338362f6a6f622f63617373616e6472612f62616467652f69636f6e"
+                                  alt="build status badge"
+                                  data-canonical-src="https://doi-janky.infosiftr.net/job/multiarch/job/i386/job/cassandra/badge/icon"
+                                  style="max-width:100%;">
+                              </a>
+                            </td>
+                            <td align="center">
+                              <a href="https://doi-janky.infosiftr.net/job/multiarch/job/ppc64le/job/cassandra"
+                                rel="nofollow">
+                                <code>ppc64le</code>
+                                <br>
+                                <img
+                                  src="https://camo.githubusercontent.com/9b35a484e6d0fe59fd58d19071c2d1ea430c7326/68747470733a2f2f646f692d6a616e6b792e696e666f73696674722e6e65742f6a6f622f6d756c7469617263682f6a6f622f70706336346c652f6a6f622f63617373616e6472612f62616467652f69636f6e"
+                                  alt="build status badge"
+                                  data-canonical-src="https://doi-janky.infosiftr.net/job/multiarch/job/ppc64le/job/cassandra/badge/icon"
+                                  style="max-width:100%;">
+                              </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </article>
+                  </div>
+                  <!-- [{"key":"Accept","value":"application/vnd.github.3.html","description":""}] -->
+                  <!-- https://api.github.com/repos/onur-ozel/cassandra/readme -->
+                </div>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <!-- <nav aria-label="Search results pages">
+      <ul class="pagination pagination-sm">
+        <li class="page-item active"
+            aria-current="page">
+          <span class="page-link"
+                #pageItem1
+                (click)="currentPage=+pageItem1.text;">
+            {{currentPage+1}}
+            <span class="sr-only">(current)</span>
+          </span>
+        </li>
+        <li class="page-item"><a class="page-link"
+             #pageItem2
+             (click)="currentPage=+pageItem2.text;">{{currentPage+2}}</a></li>
+        <li class="page-item"><a class="page-link"
+             #pageItem3
+             (click)="currentPage=+pageItem3.text;">{{currentPage+3}}</a></li>
+      </ul>
+    </nav> -->
+  </div>
+  <div class="card-footer text-muted">
+    2019.08.03 15:03
+  </div>
+</div>
