@@ -1,4 +1,4 @@
-package com.onur.scout24.ui;
+package com.onur.scout24;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +11,9 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 @SpringBootApplication
 @EnableZuulProxy
 @EnableOAuth2Sso
-public class App extends WebSecurityConfigurerAdapter {
+public class GitHubAnalyzerUI extends WebSecurityConfigurerAdapter {
     public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
+        SpringApplication.run(GitHubAnalyzerUI.class, args);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class App extends WebSecurityConfigurerAdapter {
           http
           .logout().logoutSuccessUrl("/").and()
               .authorizeRequests()
-                  .antMatchers("/index.html", "/**", "/github/api/v1/statistics/**","/login").permitAll()
+                  .antMatchers("/index.html", "/**", "/github/api/v1/statistics/**","/api/v1/statistics/**","/login").permitAll()
                   .anyRequest().authenticated()
                   .and()
               .csrf()

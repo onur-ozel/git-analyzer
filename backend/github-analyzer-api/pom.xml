@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>GitHub reposityory analyzer project for Scout24 home assignment</name>
+    <name>GitHub repository analyzer API project for Scout24 home assignment</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -18,7 +18,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>com.onur.scout24.GitHubAnalyzerApiApp</start-class>
+        <start-class>com.onur.scout24.GitHubAnalyzerApi</start-class>
         <java.version>1.8</java.version>
     </properties>
 

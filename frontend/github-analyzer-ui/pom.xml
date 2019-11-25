@@ -3,12 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.onur.scout24.ui</groupId>
+    <groupId>com.onur.scout24</groupId>
     <artifactId>github-analyzer-ui</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Spring Boot Blank Project (from https://github.com/making/spring-boot-blank)</name>
+    <name>GitHub repository analyzer UI project for Scout24 home assignment</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -37,7 +37,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>com.onur.scout24.ui.App</start-class>
+        <start-class>com.onur.scout24.GitHubAnalyzerUI</start-class>
         <java.version>1.8</java.version>
         <lombok.version>1.14.8</lombok.version>
         <log4jdbc.log4j2.version>1.16</log4jdbc.log4j2.version>

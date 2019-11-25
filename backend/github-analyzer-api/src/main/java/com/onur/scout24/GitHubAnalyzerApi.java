@@ -11,9 +11,9 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 @EnableCaching
 @SpringBootApplication
 @EnableResourceServer
-public class GitHubAnalyzerApiApp extends WebSecurityConfigurerAdapter {
+public class GitHubAnalyzerApi extends WebSecurityConfigurerAdapter {
   public static void main(final String[] args) {
-    SpringApplication.run(GitHubAnalyzerApiApp.class, args);
+    SpringApplication.run(GitHubAnalyzerApi.class, args);
   }
 
   @Override
