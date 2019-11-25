@@ -7,13 +7,15 @@ import com.onur.scout24.dto.RepoDto;
 import com.onur.scout24.model.AnalyzedRepo;
 import com.onur.scout24.repository.AnalyzeRepository;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-import org.modelmapper.ModelMapper;
 
 @Service
 public class AnalyzeService {
@@ -80,6 +82,6 @@ public class AnalyzeService {
     }
 
     public Iterable<AnalyzedRepo> getAll() {
-        return repository.findAll();
+        return repository.findByUserId(1L, new PageRequest(0, 20, Sort.Direction.DESC, "createDateTime"));
     }
 }

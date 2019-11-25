@@ -1,5 +1,6 @@
 package com.onur.scout24.controller;
 
+import java.security.Principal;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -29,7 +30,7 @@ public class AnalyzeController {
 
   @CrossOrigin(allowedHeaders = "*")
   @RequestMapping(value = "/{userName}/{repoName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public AnalyzedRepo analyze(@PathVariable(name = "userName", required = true) String userName,
+  public AnalyzedRepo analyze(Principal principal, @PathVariable(name = "userName", required = true) String userName,
       @PathVariable(name = "repoName", required = true) String repoName)
       throws InterruptedException, ExecutionException {
 
@@ -44,7 +45,7 @@ public class AnalyzeController {
     repoDetail.setPullsCount(pullCountFuture.get());
     repoDetail.setCommitsCount(commitCountFuture.get());
     repoDetail.setContributersCount(contributerCountFuture.get());
-
+    repoDetail.setUserId(1L);
     service.add(repoDetail);
 
     return repoDetail;
