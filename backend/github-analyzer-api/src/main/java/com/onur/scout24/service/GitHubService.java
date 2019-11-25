@@ -50,7 +50,7 @@ public class GitHubService {
     public SearchRepoResponse searchRepositories(String userName, String repoName) {
         URI searchRepoUri = UriComponentsBuilder
                 .fromUriString(
-                        "{apiUrl}/search/repositories?q={repoName}  in:name user:{userName}&sort=stars&order=desc")
+                        "{apiUrl}/search/repositories?q={repoName} in:name user:{userName}&sort=stars&order=desc")
                 .buildAndExpand(gitHubApiUrl, repoName, userName).toUri();
 
         RestTemplate restTemplate = new RestTemplate();

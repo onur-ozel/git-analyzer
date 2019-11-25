@@ -12160,9 +12160,9 @@
           \****************************************************************************************************************************************************/
         /*! no static exports found */
         /***/ (function (module, exports, __webpack_require__) {
-            __webpack_require__(/*! C:\Users\Onur\Desktop\Projects\scout24-home-assignment\frontend2\github-analyzer-ui\src\ui-angular-app\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-polyfills.js */ "./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/es5-polyfills.js");
+            __webpack_require__(/*! C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\frontend\github-analyzer-ui\src\ui-angular-app\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-polyfills.js */ "./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/es5-polyfills.js");
             __webpack_require__(/*! zone.js/dist/zone-legacy */ "./node_modules/zone.js/dist/zone-legacy.js");
-            module.exports = __webpack_require__(/*! C:\Users\Onur\Desktop\Projects\scout24-home-assignment\frontend2\github-analyzer-ui\src\ui-angular-app\src\polyfills.ts */ "./src/polyfills.ts");
+            module.exports = __webpack_require__(/*! C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\frontend\github-analyzer-ui\src\ui-angular-app\src\polyfills.ts */ "./src/polyfills.ts");
             /***/ 
         })
     }, [[1, "runtime"]]]);

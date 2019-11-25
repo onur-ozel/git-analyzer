@@ -332,9 +332,9 @@
           \*****************************************************************************************************************************************/
         /*! no static exports found */
         /***/ (function (module, exports, __webpack_require__) {
-            __webpack_require__(/*! C:\Users\Onur\Desktop\Projects\scout24-home-assignment\frontend2\github-analyzer-ui\src\ui-angular-app\src\styles.css */ "./src/styles.css");
-            __webpack_require__(/*! C:\Users\Onur\Desktop\Projects\scout24-home-assignment\frontend2\github-analyzer-ui\src\ui-angular-app\node_modules\bootstrap\dist\css\bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
-            module.exports = __webpack_require__(/*! C:\Users\Onur\Desktop\Projects\scout24-home-assignment\frontend2\github-analyzer-ui\src\ui-angular-app\node_modules\github-markdown-css\github-markdown.css */ "./node_modules/github-markdown-css/github-markdown.css");
+            __webpack_require__(/*! C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\frontend\github-analyzer-ui\src\ui-angular-app\src\styles.css */ "./src/styles.css");
+            __webpack_require__(/*! C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\frontend\github-analyzer-ui\src\ui-angular-app\node_modules\bootstrap\dist\css\bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
+            module.exports = __webpack_require__(/*! C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\frontend\github-analyzer-ui\src\ui-angular-app\node_modules\github-markdown-css\github-markdown.css */ "./node_modules/github-markdown-css/github-markdown.css");
             /***/ 
         })
     }, [[3, "runtime"]]]);

@@ -1,1 +1,4 @@
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\test\java\com\onur\scout24\HelloControllerTest.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\test\java\com\onur\scout24\controller\AnalyzeControllerIntegrationTest.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\test\java\com\onur\scout24\repository\AnalyzedItemRepositoryIntegrationTest.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\test\java\com\onur\scout24\service\AnalyzedItemServiceIntegrationTest.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\test\java\com\onur\scout24\service\TestAnalyzeService.java

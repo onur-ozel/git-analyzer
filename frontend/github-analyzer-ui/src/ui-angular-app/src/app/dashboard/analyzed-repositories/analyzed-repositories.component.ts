@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../dashboard.service';
-import { AnalyzedRepository } from './analyzed-repository.model';
+import { AnalyzedRepo } from './analyzed-repo.model';
 
 @Component({
   selector: 'app-analyzed-repositories',
@@ -8,11 +8,11 @@ import { AnalyzedRepository } from './analyzed-repository.model';
   styleUrls: ['./analyzed-repositories.component.css']
 })
 export class AnalyzedRepositoriesComponent implements OnInit {
-  repos: AnalyzedRepository[];
+  repos: AnalyzedRepo[];
   constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
-    this.dashboardService.getAnalyzedRepos().subscribe((data: AnalyzedRepository[]) => {
+    this.dashboardService.getAnalyzedRepos().subscribe((data: AnalyzedRepo[]) => {
       this.repos = data;
     });
   }

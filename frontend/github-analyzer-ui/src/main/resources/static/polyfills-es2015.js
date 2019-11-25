@@ -3142,7 +3142,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Onur\Desktop\Projects\scout24-home-assignment\frontend2\github-analyzer-ui\src\ui-angular-app\src\polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\frontend\github-analyzer-ui\src\ui-angular-app\src\polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

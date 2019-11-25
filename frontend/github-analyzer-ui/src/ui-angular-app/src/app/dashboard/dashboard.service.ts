@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Repository } from '../shared/models/repository.model';
+import { Repo } from '../shared/models/repo.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
@@ -12,30 +12,35 @@ export class DashboardService {
 
   public getCurrentUserRepos() {
     return this.http
-      .get('api/v1/github/repos');
+      .get('github/api/v1/github/repos');
   }
 
   public getCurrentUserFollowers() {
     return this.http
-      .get('api/v1/github/followers');
+      .get('github/api/v1/github/followers');
   }
 
   public getCurrentUserFollowings() {
     return this.http
-      .get('api/v1/github/followings');
+      .get('github/api/v1/github/followings');
   }
 
-  public searchRepositories(userName: string, repositoryName: string) {
+  public searchRepositories(userName: string, repoName: string) {
     const params = new HttpParams()
       .set('userName', userName)
-      .set('repositoryName', repositoryName);
+      .set('repoName', repoName);
 
     return this.http
-      .get('api/v1/github/search-repo/', { params });
+      .get('github/api/v1/github/search-repo/', { params });
   }
 
   public getAnalyzedRepos() {
     return this.http
-      .get('api/v1/analyze');
+      .get('github/api/v1/analyze');
+  }
+
+  public analyzeRepo(repo: Repo) {
+    return this.http
+      .get(`github/api/v1/analyze/${repo.owner.login}/${repo.name}`);
   }
 }

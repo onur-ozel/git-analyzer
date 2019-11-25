@@ -24,8 +24,7 @@ public class GitHubController {
   @Cacheable(value = "repos")
   @RequestMapping(value = "/repos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public RepoDto[] getRepos(Principal principal) {
-    return service.getRepos("onur-ozel");
-    // return service.getRepositories(principal.getName());
+    return service.getRepos(principal.getName());
   }
 
   @Cacheable(value = "search-repo")
@@ -38,14 +37,12 @@ public class GitHubController {
   @Cacheable(value = "followers")
   @RequestMapping(value = "/followers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public UserDto[] getFollowers(Principal principal) {
-    return service.getFollowerUsers("onur-ozel");
-    // return service.getFollowerUsers(principal.getName());
+    return service.getFollowerUsers(principal.getName());
   }
 
   @Cacheable(value = "followings")
   @RequestMapping(value = "/followings", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public UserDto[] getFollowings(Principal principal) {
-    return service.getFollowingUsers("onur-ozel");
-    // return service.getFollowingUsers(principal.getName());
+    return service.getFollowingUsers(principal.getName());
   }
 }

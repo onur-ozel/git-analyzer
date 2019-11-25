@@ -1,6 +1,6 @@
 import { User } from 'src/app/shared/models/user.model';
 
-export class Repository {
+export class Repo {
   id: number;
   name: string;
   fullName: string;

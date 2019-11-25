@@ -12,10 +12,12 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -25,17 +27,16 @@ public class AnalyzeController {
   @Autowired
   AnalyzeService service;
 
-  @RequestMapping(value = "/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-  public AnalyzedRepo analyze(@RequestBody RepoDto repo) throws InterruptedException, ExecutionException {
+  @CrossOrigin(allowedHeaders = "*")
+  @RequestMapping(value = "/{userName}/{repoName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  public AnalyzedRepo analyze(@PathVariable(name = "userName", required = true) String userName,
+      @PathVariable(name = "repoName", required = true) String repoName)
+      throws InterruptedException, ExecutionException {
 
-    CompletableFuture<AnalyzedRepo> gitRepoDetail = service.getGitRepoDetail(repo.getOwner().getLogin(),
-        repo.getName());
-    CompletableFuture<Integer> pullCountFuture = service.getGitRepoPullCount(repo.getOwner().getLogin(),
-        repo.getName());
-    CompletableFuture<Integer> commitCountFuture = service.getGitRepoCommitCount(repo.getOwner().getLogin(),
-        repo.getName());
-    CompletableFuture<Integer> contributerCountFuture = service.getGitRepoContributerCount(repo.getOwner().getLogin(),
-        repo.getName());
+    CompletableFuture<AnalyzedRepo> gitRepoDetail = service.getGitRepoDetail(userName, repoName);
+    CompletableFuture<Integer> pullCountFuture = service.getGitRepoPullCount(userName, repoName);
+    CompletableFuture<Integer> commitCountFuture = service.getGitRepoCommitCount(userName, repoName);
+    CompletableFuture<Integer> contributerCountFuture = service.getGitRepoContributerCount(userName, repoName);
 
     AnalyzedRepo repoDetail = new AnalyzedRepo();
 
@@ -49,7 +50,6 @@ public class AnalyzeController {
     return repoDetail;
   }
 
-  // @Cacheable(value = "analyzed_repositories")
   @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<Iterable<AnalyzedRepo>> getAll() {
     Iterable<AnalyzedRepo> response = service.getAll();

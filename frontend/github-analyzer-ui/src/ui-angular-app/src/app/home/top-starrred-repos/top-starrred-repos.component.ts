@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Repository } from 'src/app/shared/models/repository.model';
+import { Repo } from 'src/app/shared/models/repo.model';
 import { HomeService } from '../home.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { HomeService } from '../home.service';
   styleUrls: ['./top-starrred-repos.component.css']
 })
 export class TopStarrredReposComponent implements OnInit {
-  repositories: Repository[];
+  repositories: Repo[];
   totalRepositoryCount: number;
 
   constructor(private homeService: HomeService) { }

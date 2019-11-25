@@ -9,6 +9,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=Strong_Passw0rd
       - MYSQL_USER=user
+      - MYSQL_DATABASE=github
     ports:
       - '3306:3306'
 # mysql --user=root --password=Strong_Passw0rd
