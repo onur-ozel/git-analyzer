@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Test set: com.onur.scout24.service.AnalyzedItemServiceIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.106 sec <<< FAILURE! - in com.onur.scout24.service.AnalyzedItemServiceIntegrationTest
+whenGetPull_thenPullCountShouldBeThree(com.onur.scout24.service.AnalyzedItemServiceIntegrationTest)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.IllegalArgumentException: URI is not absolute
+	at java.net.URI.toURL(URI.java:1088)
+	at org.springframework.http.client.SimpleClientHttpRequestFactory.createRequest(SimpleClientHttpRequestFactory.java:141)
+	at org.springframework.http.client.support.HttpAccessor.createRequest(HttpAccessor.java:85)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:648)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:628)
+	at org.springframework.web.client.RestTemplate.getForObject(RestTemplate.java:303)
+	at com.onur.scout24.service.AnalyzeService.getGitRepoPullCount(AnalyzeService.java:48)
+	at com.onur.scout24.service.AnalyzedItemServiceIntegrationTest.whenGetPull_thenPullCountShouldBeThree(AnalyzedItemServiceIntegrationTest.java:65)
+

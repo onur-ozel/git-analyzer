@@ -21,4 +21,4 @@ zuul:
   routes:
     resource:
       path: /github/**
-      url: http://localhost:8080
+      url: http://10.20.30.103:8080

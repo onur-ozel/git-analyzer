@@ -1,0 +1,53 @@
+version: '3.4'
+networks:
+  scout24-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.20.30.0/16
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - '6379:6379'
+    networks:
+      scout24-network:
+        ipv4_address: 10.20.30.101
+  mysql:
+    image: mysql:8.0.18
+    environment:
+      - MYSQL_ROOT_PASSWORD=Strong_Passw0rd
+      - MYSQL_USER=user
+      - MYSQL_DATABASE=github
+    ports:
+      - '3306:3306'
+    networks:
+      scout24-network:
+        ipv4_address: 10.20.30.102
+  api:
+    build:
+      context: backend/github-analyzer-api/.
+      dockerfile: Dockerfile
+    # command: ["/wait-for-it.sh", "logger.data:9042", "--", "echo","cassandra is up"]
+    ports:
+      - '8080:8080'
+    networks:
+      scout24-network:
+        ipv4_address: 10.20.30.103
+    depends_on:
+      - mysql
+  ui:
+    build:
+      context: frontend/github-analyzer-ui/.
+      dockerfile: Dockerfile
+    # command: ["/wait-for-it.sh", "logger.data:9042", "--", "echo","cassandra is up"]
+    ports:
+      - '4200:4200'
+    networks:
+      scout24-network:
+        ipv4_address: 10.20.30.104
+    depends_on:
+      - mysql
+# mysql --user=root --password=Strong_Passw0rd
+# use github;
+# show tables;

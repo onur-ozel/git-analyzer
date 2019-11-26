@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.onur.scout24.controller.AnalyzeControllerIntegrationTest" time="0.001" tests="1" errors="1" skipped="0" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin"/>
+    <property name="java.vm.version" value="25.232-b09"/>
+    <property name="java.vm.vendor" value=""/>
+    <property name="maven.multiModuleProjectDirectory" value="C:/Users/Onur/Desktop/home assignment/scout24-home-assignment/backend/github-analyzer-api"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="GB"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api"/>
+    <property name="java.runtime.version" value="1.8.0_232-b09"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\Onur\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="D:/apache-maven-3.6.0/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\Program Files\Git\mingw64\bin;D:\Program Files\Git\usr\bin;C:\Users\Onur\bin;C:\Python27;C:\Python27\Scripts;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Docker\Docker\Resources\bin;C:\Program Files\Amazon Corretto\jdk11.0.5_10\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;D:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\dotnet;C:\Program Files (x86)\dotnet;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\bin;C:\Go\bin;D:\Program Files\Calibre2;D:\Program Files\PuTTY;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\bin;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin;D:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Users\Onur\AppData\Local\Microsoft\WindowsApps;C:\Users\Onur\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Onur\.dotnet\tools;D:\apache-maven-3.6.0\bin;C:\Users\Onur\go\bin;C:\Users\Onur\AppData\Local\Microsoft\WindowsApps;C:\Users\Onur\AppData\Roaming\npm;."/>
+    <property name="maven.conf" value="D:/apache-maven-3.6.0/conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="D:/apache-maven-3.6.0/lib/jansi-native"/>
+    <property name="user.home" value="C:\Users\Onur"/>
+    <property name="user.timezone" value="Asia/Istanbul"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="user.name" value="Onur"/>
+    <property name="java.class.path" value="D:/apache-maven-3.6.0/boot/plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_232"/>
+    <property name="java.ext.dirs" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\lib\resources.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\lib\rt.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\lib\sunrsasign.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\lib\jsse.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\lib\jce.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\lib\charsets.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\lib\jfr.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\classes"/>
+    <property name="sun.stderr.encoding" value="cp437"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="D:\apache-maven-3.6.0"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.stdout.encoding" value="cp437"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="initializationError" classname="com.onur.scout24.controller.AnalyzeControllerIntegrationTest" time="0.001">
+    <error message="Method testCreateGame() should be public" type="java.lang.Exception"><![CDATA[java.lang.Exception: Method testCreateGame() should be public
+	at org.junit.runners.model.FrameworkMethod.validatePublicVoid(FrameworkMethod.java:96)
+	at org.junit.runners.model.FrameworkMethod.validatePublicVoidNoArg(FrameworkMethod.java:74)
+	at org.junit.runners.ParentRunner.validatePublicVoidNoArgMethods(ParentRunner.java:155)
+	at org.junit.runners.BlockJUnit4ClassRunner.validateTestMethods(BlockJUnit4ClassRunner.java:208)
+	at org.junit.runners.BlockJUnit4ClassRunner.validateInstanceMethods(BlockJUnit4ClassRunner.java:188)
+	at org.junit.runners.BlockJUnit4ClassRunner.collectInitializationErrors(BlockJUnit4ClassRunner.java:128)
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:416)
+	at org.junit.runners.ParentRunner.<init>(ParentRunner.java:84)
+	at org.junit.runners.BlockJUnit4ClassRunner.<init>(BlockJUnit4ClassRunner.java:65)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.<init>(SpringJUnit4ClassRunner.java:138)
+	at org.springframework.test.context.junit4.SpringRunner.<init>(SpringRunner.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:104)
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:86)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:33)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+]]></error>
+    <system-out><![CDATA[03:28:19.138 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.onur.scout24.repository.AnalyzedItemRepositoryIntegrationTest]
+03:28:19.148 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+03:28:19.158 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+03:28:19.186 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.onur.scout24.repository.AnalyzedItemRepositoryIntegrationTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+03:28:19.211 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.onur.scout24.repository.AnalyzedItemRepositoryIntegrationTest], using SpringBootContextLoader
+03:28:19.216 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.onur.scout24.repository.AnalyzedItemRepositoryIntegrationTest]: class path resource [com/onur/scout24/repository/AnalyzedItemRepositoryIntegrationTest-context.xml] does not exist
+03:28:19.217 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.onur.scout24.repository.AnalyzedItemRepositoryIntegrationTest]: class path resource [com/onur/scout24/repository/AnalyzedItemRepositoryIntegrationTestContext.groovy] does not exist
+03:28:19.217 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.onur.scout24.repository.AnalyzedItemRepositoryIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+03:28:19.218 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.onur.scout24.repository.AnalyzedItemRepositoryIntegrationTest]: AnalyzedItemRepositoryIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03:28:19.337 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.onur.scout24.repository.AnalyzedItemRepositoryIntegrationTest]
+03:28:19.350 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+03:28:19.353 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+03:28:19.353 [main] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+03:28:19.369 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [com/onur/scout24/repository/] to resources [URL [file:/C:/Users/Onur/Desktop/home%20assignment/scout24-home-assignment/backend/github-analyzer-api/target/test-classes/com/onur/scout24/repository/], URL [file:/C:/Users/Onur/Desktop/home%20assignment/scout24-home-assignment/backend/github-analyzer-api/target/classes/com/onur/scout24/repository/]]
+03:28:19.370 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\target\test-classes\com\onur\scout24\repository]
+03:28:19.370 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\target\test-classes\com\onur\scout24\repository] for files matching pattern [C:/Users/Onur/Desktop/home assignment/scout24-home-assignment/backend/github-analyzer-api/target/test-classes/com/onur/scout24/repository/*.class]
+03:28:19.375 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\target\classes\com\onur\scout24\repository]
+03:28:19.376 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\target\classes\com\onur\scout24\repository] for files matching pattern [C:/Users/Onur/Desktop/home assignment/scout24-home-assignment/backend/github-analyzer-api/target/classes/com/onur/scout24/repository/*.class]
+03:28:19.377 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/onur/scout24/repository/*.class] to resources [file [C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\target\test-classes\com\onur\scout24\repository\AnalyzedItemRepositoryIntegrationTest.class], file [C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\target\classes\com\onur\scout24\repository\AnalyzeRepository.class]]
+03:28:19.404 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [com/onur/scout24/] to resources [URL [file:/C:/Users/Onur/Desktop/home%20assignment/scout24-home-assignment/backend/github-analyzer-api/target/test-classes/com/onur/scout24/], URL [file:/C:/Users/Onur/Desktop/home%20assignment/scout24-home-assignment/backend/github-analyzer-api/target/classes/com/onur/scout24/]]
+03:28:19.404 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\target\test-classes\com\onur\scout24]
+03:28:19.404 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\target\test-classes\com\onur\scout24] for files matching pattern [C:/Users/Onur/Desktop/home assignment/scout24-home-assignment/backend/github-analyzer-api/target/test-classes/com/onur/scout24/*.class]
+03:28:19.405 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\target\classes\com\onur\scout24]
+03:28:19.406 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\target\classes\com\onur\scout24] for files matching pattern [C:/Users/Onur/Desktop/home assignment/scout24-home-assignment/backend/github-analyzer-api/target/classes/com/onur/scout24/*.class]
+03:28:19.407 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/onur/scout24/*.class] to resources [file [C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\target\classes\com\onur\scout24\GitHubAnalyzerApi.class]]
+03:28:19.445 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\target\classes\com\onur\scout24\GitHubAnalyzerApi.class]
+03:28:19.447 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.onur.scout24.GitHubAnalyzerApi for test class com.onur.scout24.repository.AnalyzedItemRepositoryIntegrationTest
+03:28:19.451 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.onur.scout24.repository.AnalyzedItemRepositoryIntegrationTest]: using defaults.
+03:28:19.456 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener]
+03:28:19.489 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@c267ef4, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@30ee2816, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@31d7b7bf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@635eaaf1, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5c30a9b0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1ddf84b8, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@1139b2f3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7a69b07, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5e82df6a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3f197a46, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@636be97c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@50a638b5, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1817d444]
+03:28:19.495 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.onur.scout24.service.AnalyzedItemServiceIntegrationTest]
+03:28:19.495 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+03:28:19.501 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+03:28:19.501 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.onur.scout24.service.AnalyzedItemServiceIntegrationTest] from class [org.springframework.test.context.support.DefaultTestContextBootstrapper]
+03:28:19.508 [main] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.onur.scout24.service.AnalyzedItemServiceIntegrationTest], using DelegatingSmartContextLoader
+03:28:19.511 [main] DEBUG org.springframework.test.context.support.AbstractDelegatingSmartContextLoader - Delegating to GenericXmlContextLoader to process context configuration [ContextConfigurationAttributes@7193666c declaringClass = 'com.onur.scout24.service.AnalyzedItemServiceIntegrationTest', classes = '{}', locations = '{}', inheritLocations = false, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.test.context.ContextLoader'].
+03:28:19.512 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.onur.scout24.service.AnalyzedItemServiceIntegrationTest]: class path resource [com/onur/scout24/service/AnalyzedItemServiceIntegrationTest-context.xml] does not exist
+03:28:19.512 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.onur.scout24.service.AnalyzedItemServiceIntegrationTest]: no resource found for suffixes {-context.xml}.
+03:28:19.512 [main] DEBUG org.springframework.test.context.support.AbstractDelegatingSmartContextLoader - Delegating to AnnotationConfigContextLoader to process context configuration [ContextConfigurationAttributes@7193666c declaringClass = 'com.onur.scout24.service.AnalyzedItemServiceIntegrationTest', classes = '{}', locations = '{}', inheritLocations = false, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.test.context.ContextLoader'].
+03:28:19.516 [main] INFO org.springframework.test.context.support.AbstractDelegatingSmartContextLoader - AnnotationConfigContextLoader detected default configuration classes for context configuration [ContextConfigurationAttributes@7193666c declaringClass = 'com.onur.scout24.service.AnalyzedItemServiceIntegrationTest', classes = '{class com.onur.scout24.service.AnalyzedItemServiceIntegrationTest$AnalyzedItemServiceTestContextConfiguration}', locations = '{}', inheritLocations = false, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.test.context.ContextLoader'].
+03:28:19.529 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.onur.scout24.service.AnalyzedItemServiceIntegrationTest]
+03:28:19.530 [main] DEBUG org.springframework.test.context.support.DefaultTestContextBootstrapper - @TestExecutionListeners is not present for class [com.onur.scout24.service.AnalyzedItemServiceIntegrationTest]: using defaults.
+03:28:19.534 [main] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener]
+03:28:19.536 [main] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@595b007d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@72d1ad2e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2d7275fc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@399f45b1, org.springframework.test.context.transaction.TransactionalTestExecutionListener@38c6f217, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@478190fc, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@79e2c065, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3a93b025, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@35cabb2a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7e07db1f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1189dd52, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@36bc55de, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@564fabc8]
+03:28:19.541 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.onur.scout24.repository.AnalyzedItemRepositoryIntegrationTest]
+03:28:19.541 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.onur.scout24.repository.AnalyzedItemRepositoryIntegrationTest]
+03:28:19.542 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.onur.scout24.service.AnalyzedItemServiceIntegrationTest]
+03:28:19.542 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.onur.scout24.service.AnalyzedItemServiceIntegrationTest]
+]]></system-out>
+  </testcase>
+</testsuite>
