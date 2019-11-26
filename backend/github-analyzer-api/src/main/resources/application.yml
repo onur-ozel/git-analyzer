@@ -4,11 +4,10 @@ spring:
   jackson.serialization.indent_output: true
   cache.type: redis
   redis:
-    host: localhost #//10.20.30.101
+    host: 10.20.30.101
     port: 6379
   datasource:
-    # 10.20.30.102
-    url: jdbc:mysql://127.0.0.1:3306/github?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT
+    url: jdbc:mysql://10.20.30.102:3306/github?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT
     username: root
     password: Strong_Passw0rd
   jpa:
@@ -23,8 +22,6 @@ security:
       accessTokenUri: https://github.com/login/oauth/access_token
       userAuthorizationUri: https://github.com/login/oauth/authorize
       clientAuthenticationScheme: form
-      # preEstablishedRedirectUri: http://localhost:8080/auth-success
-      # useCurrentUri: false
     resource:
       userInfoUri: https://api.github.com/user
 apiUrl:

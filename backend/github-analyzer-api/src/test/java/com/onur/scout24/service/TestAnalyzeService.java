@@ -22,26 +22,25 @@ public class TestAnalyzeService {
 
 	@Test
 	public void getGitRepoDetail() throws InterruptedException, ExecutionException {
-		AnalyzedRepo repoDetail = service.getGitRepoDetail("username", "reponame").get();
+		AnalyzedRepo repoDetail = service.getGitRepoDetail("onur-ozel", "o-bank").get();
 		assertNotNull(repoDetail);
-		// assertEquals("Belgium", countriesByLanguage.get(0).getName());
 	}
 
 	@Test
 	public void getGitRepoPullCount() throws InterruptedException, ExecutionException {
-		int pullCount = service.getGitRepoPullCount("username", "reponame").get();
+		int pullCount = service.getGitRepoPullCount("onur-ozel", "o-bank").get();
 		assertEquals(3, pullCount);
 	}
 
 	@Test
 	public void getGitRepoCommitCount() throws InterruptedException, ExecutionException {
-		int commitCount = service.getGitRepoCommitCount("username", "reponame").get();
+		int commitCount = service.getGitRepoCommitCount("onur-ozel", "o-bank").get();
 		assertEquals(30, commitCount);
 	}
 
 	@Test
 	public void getGitRepoContributerCount() throws InterruptedException, ExecutionException {
-		int contributerCount = service.getGitRepoContributerCount("username", "reponame").get();
+		int contributerCount = service.getGitRepoContributerCount("onur-ozel", "o-bank").get();
 		assertEquals(19, contributerCount);
 	}
 

@@ -58,5 +58,5 @@ public class AnalyzedRepo implements Serializable {
   private String language;
 
   @CreationTimestamp
-  private Date createDateTime;
+  private Date analyzeDateTime;
 }

@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   private authenticatedUser: User;
-  isAuthenticated = new Subject<boolean>();
+  private isAuthenticated = false;
+
+  public isAuthenticatedChanged = new BehaviorSubject<boolean>(this.isAuthenticated);
+  public authenticatedUserChanged = new BehaviorSubject<User>(this.authenticatedUser);
 
   constructor(private http: HttpClient) {
     this.checkIsAuthenticated();
@@ -18,14 +21,7 @@ export class AuthenticationService {
     return this.http.get('github/api/v1/auth/user');
   }
 
-
   getAuthenticatedUser() {
     return { ...this.authenticatedUser };
-  }
-
-  logout() {
-    this.http.post('logout', {}).subscribe(() => {
-      // this.isAuthenticated = false;
-    });
   }
 }

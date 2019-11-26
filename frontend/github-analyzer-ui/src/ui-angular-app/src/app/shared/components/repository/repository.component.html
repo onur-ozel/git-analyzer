@@ -1,0 +1,97 @@
+<div class="card shadow h-100 ">
+  <div class="card-header card-header py-2 px-3">
+    <h5 class="m-0"><i class="fas fa-warehouse mr-2"></i>Total {{repositories?.length}} Repository</h5>
+  </div>
+  <div class="card-body pb-0 overflow-auto scout-scroll">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col-auto">#</th>
+          <th scope="col-auto"></th>
+          <th scope="col-auto"></th>
+          <th scope="col">Name</th>
+          <th scope="col">Owner</th>
+          <th scope="col-auto"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let repository of repositories; let i = index">
+          <tr>
+            <th class="align-middle fit pr-3" scope="row">{{i+1}}</th>
+            <td class="align-middle fit pr-3">
+              <button title="Detail" class="btn btn-primary rounded-circle p-0" style="width: 25px;height: 25px;"
+                type="button" data-toggle="collapse" [attr.data-target]="'#repo_row_detail_'+(i+1)"
+                aria-expanded="false" aria-controls="row_detail">
+                <div #plus (click)="plus.style.display='none'; minus.style.display='block'">
+                  <i class="fas fa-plus"></i>
+                </div>
+                <div #minus (click)="minus.style.display='none'; plus.style.display='block'" style="display: none;">
+                  <i class="fas fa-minus"></i>
+                </div>
+              </button>
+            </td>
+
+            <td class="align-middle fit pr-3">
+              <button title="Analyze" (click)="analyzeRepo(repository)" class="btn btn-info rounded-circle p-0"
+                style="width: 25px;height: 25px;" type="button">
+                <i class="fas fa-cog"></i>
+              </button>
+            </td>
+
+            <td class="align-middle"><a href="{{repository.url}}">{{repository.fullName}}</a></td>
+            <td class="align-middle">
+              <img class="rounded-circle img-thumbnail mr-2" style="width: 40px;height: 40px;"
+                src="{{repository.owner.avatarUrl}}" alt="">
+              <a href="{{repository.owner.url}}">{{repository.owner.login}}
+              </a>
+            </td>
+            <td class="align-middle fit pr-3">
+              <a href="#" title="Show Readme" (click)="showReadme(repository)">
+                <i class="fab fa-readme mr-2"></i>Show Readme
+              </a>
+            </td>
+          </tr>
+          <tr style="border:0px">
+            <td class="p-0" colspan="5">
+              <div class="collapse container-fluid" id="repo_row_detail_{{i+1}}">
+                <div class="row pt-3 px-3">
+                  <div class="col-auto p-0 mr-2" *ngIf=repository.isForked>
+                    <span class="bg-info text-white rounded p-2">
+                      <i class="fas fa-exclamation-circle"></i>
+                      Forked
+                    </span>
+                  </div>
+                  <div class="col-auto p-0 mr-2">
+                    <span class="bg-secondary text-white rounded p-2">Watchers<span
+                        class="badge badge-primary ml-2">{{repository.watchersCount}}</span></span>
+                  </div>
+                  <div class="col-auto p-0 mr-2">
+                    <span class="bg-secondary text-white rounded p-2">Stars<span
+                        class="badge badge-primary ml-2">{{repository.starGazersCount}}</span></span>
+                  </div>
+                  <div class="col-auto p-0 mr-2">
+                    <span class="bg-secondary text-white rounded p-2">Forks<span
+                        class="badge badge-primary ml-2">{{repository.forksCount}}</span></span>
+                  </div>
+                  <div class="col-auto p-0 mr-2" *ngIf=repository.language>
+                    <span class="bg-primary text-white rounded p-2">{{repository.language}}</span>
+                  </div>
+                </div>
+                <div class="row pt-3 px-3">
+                  <div class="col p-0">
+                    <span>
+                      {{repository.description}}
+                    </span>
+                  </div>
+                </div>
+                <hr>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-readme [isVisible]="isReadmeVisible" (close)="isReadmeVisible=false" [readmeData]="readmeData"></app-readme>

@@ -2,7 +2,6 @@ package com.onur.scout24.controller;
 
 import java.security.Principal;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 import com.onur.scout24.model.AnalyzedRepo;
@@ -33,21 +32,7 @@ public class AnalyzeController {
     Number userId = (Number) (((Map<String, Object>) ((OAuth2Authentication) principal).getUserAuthentication()
         .getDetails()).get("id"));
 
-    CompletableFuture<AnalyzedRepo> gitRepoDetail = service.getGitRepoDetail(userName, repoName);
-    CompletableFuture<Integer> pullCountFuture = service.getGitRepoPullCount(userName, repoName);
-    CompletableFuture<Integer> commitCountFuture = service.getGitRepoCommitCount(userName, repoName);
-    CompletableFuture<Integer> contributerCountFuture = service.getGitRepoContributerCount(userName, repoName);
-
-    AnalyzedRepo repoDetail = new AnalyzedRepo();
-
-    repoDetail = gitRepoDetail.get();
-    repoDetail.setPullsCount(pullCountFuture.get());
-    repoDetail.setCommitsCount(commitCountFuture.get());
-    repoDetail.setContributersCount(contributerCountFuture.get());
-    repoDetail.setUserId(userId.longValue());
-    service.add(repoDetail);
-
-    return repoDetail;
+    return service.analyze(userName, repoName, userId.longValue());
   }
 
   @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

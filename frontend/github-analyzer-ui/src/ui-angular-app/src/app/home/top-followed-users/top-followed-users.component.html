@@ -14,10 +14,13 @@
       <tbody>
         <ng-container *ngFor="let user of users; let i = index">
           <tr>
-            <th class="align-middle" scope="row">{{i+1}}</th>
+            <th class="align-middle"
+                scope="row">{{i+1}}</th>
             <td class="align-middle">
-              <img class="rounded-circle img-thumbnail mr-2" style="width: 40px;height: 40px;" src="{{user.avatarUrl}}"
-                alt="">
+              <img class="rounded-circle img-thumbnail mr-2"
+                   style="width: 40px;height: 40px;"
+                   src="{{user.avatarUrl}}"
+                   alt="">
               <a href="{{user.url}}">{{user.login}}
               </a>
             </td>
@@ -25,8 +28,5 @@
         </ng-container>
       </tbody>
     </table>
-  </div>
-  <div class="card-footer text-muted">
-    2019.08.03 15:03
   </div>
 </div>

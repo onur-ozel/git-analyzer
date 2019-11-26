@@ -21,6 +21,23 @@ public class GitHubController {
   @Autowired
   GitHubService service;
 
+  @RequestMapping(value = "/user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  public UserDto getUserInfo(Principal principal) {
+
+    UserDto response = service.getUserInfo(principal.getName());
+
+    return response;
+  }
+
+  @RequestMapping(value = "/readme", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+  public String getReadme(@RequestParam(name = "userName", required = true) String userName,
+      @RequestParam(name = "repoName", required = true) String repoName) {
+
+    String response = service.getReadme(userName, repoName);
+
+    return response;
+  }
+
   @RequestMapping(value = "/repos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public RepoDto[] getRepos(Principal principal) {
 

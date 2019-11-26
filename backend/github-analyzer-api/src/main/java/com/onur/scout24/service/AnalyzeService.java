@@ -2,6 +2,7 @@ package com.onur.scout24.service;
 
 import java.net.URI;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import com.onur.scout24.dto.RepoDto;
 import com.onur.scout24.model.AnalyzedRepo;
@@ -10,7 +11,6 @@ import com.onur.scout24.repository.AnalyzeRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -25,6 +25,26 @@ public class AnalyzeService {
     @Value("${apiUrl.root}")
     private String gitHubApiUrl;
 
+    public AnalyzedRepo analyze(String userName, String repoName, long userId)
+            throws InterruptedException, ExecutionException {
+        CompletableFuture<AnalyzedRepo> gitRepoDetail = getGitRepoDetail(userName, repoName);
+        CompletableFuture<Integer> pullCountFuture = getGitRepoPullCount(userName, repoName);
+        CompletableFuture<Integer> commitCountFuture = getGitRepoCommitCount(userName, repoName);
+        CompletableFuture<Integer> contributerCountFuture = getGitRepoContributerCount(userName, repoName);
+
+        AnalyzedRepo analyzedRepo = new AnalyzedRepo();
+
+        analyzedRepo = gitRepoDetail.get();
+        analyzedRepo.setPullsCount(pullCountFuture.get());
+        analyzedRepo.setCommitsCount(commitCountFuture.get());
+        analyzedRepo.setContributersCount(contributerCountFuture.get());
+        analyzedRepo.setUserId(userId);
+
+        add(analyzedRepo);
+
+        return analyzedRepo;
+    }
+
     @Async
     public CompletableFuture<AnalyzedRepo> getGitRepoDetail(String userName, String repoName) {
         URI detailRepoUri = UriComponentsBuilder.fromUriString("{apiUrl}/repos/{userName}/{repoName}")
@@ -33,7 +53,7 @@ public class AnalyzeService {
 
         RepoDto response = restTemplate.getForObject(detailRepoUri, RepoDto.class);
         ModelMapper modelMapper = new ModelMapper();
-
+        // modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
         AnalyzedRepo analyzedRepo = modelMapper.map(response, AnalyzedRepo.class);
 
         return CompletableFuture.completedFuture(analyzedRepo);
@@ -82,6 +102,6 @@ public class AnalyzeService {
     }
 
     public Iterable<AnalyzedRepo> getAll(Long userId) {
-        return repository.findByUserId(userId, new PageRequest(0, 20, Sort.Direction.DESC, "createDateTime"));
+        return repository.findByUserId(userId, new Sort(Sort.Direction.DESC, "analyzeDateTime"));
     }
 }

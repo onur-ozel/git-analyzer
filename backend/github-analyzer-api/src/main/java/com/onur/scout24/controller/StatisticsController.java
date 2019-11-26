@@ -7,9 +7,7 @@ import com.onur.scout24.service.StatisticService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,11 +20,11 @@ public class StatisticsController {
 
   @Cacheable(value = "top-starred-repos")
   @RequestMapping(value = "/top-starred-repos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<SearchRepoResponse> getTopStarredRepos() {
+  public SearchRepoResponse getTopStarredRepos() {
 
     SearchRepoResponse response = service.getTopStarredRepos();
 
-    return new ResponseEntity<>(response, HttpStatus.OK);
+    return response;
   }
 
   @Cacheable(value = "top-reacted-issues")
