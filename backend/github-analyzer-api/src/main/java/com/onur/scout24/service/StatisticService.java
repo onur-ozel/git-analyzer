@@ -17,21 +17,21 @@ public class StatisticService {
     @Value("${apiUrl.top-followed-users}")
     private String topFollowedUsersUri;
 
-    public SearchRepoResponse topStarredRepos() {
-        final RestTemplate restTemplate = new RestTemplate();
-        final SearchRepoResponse response = restTemplate.getForObject(topStarredReposUri, SearchRepoResponse.class);
+    public SearchRepoResponse getTopStarredRepos() {
+        RestTemplate restTemplate = new RestTemplate();
+        SearchRepoResponse response = restTemplate.getForObject(topStarredReposUri, SearchRepoResponse.class);
 
         return response;
     }
 
-    public SearchIssueResponse topReactedIssues() {
+    public SearchIssueResponse getTopReactedIssues() {
         RestTemplate restTemplate = new RestTemplate();
         SearchIssueResponse response = restTemplate.getForObject(topReactedIssuesUri, SearchIssueResponse.class);
 
         return response;
     }
 
-    public SearchUserResponse topFollowedUsers() {
+    public SearchUserResponse getTopFollowedUsers() {
         RestTemplate restTemplate = new RestTemplate();
         SearchUserResponse response = restTemplate.getForObject(topFollowedUsersUri, SearchUserResponse.class);
 

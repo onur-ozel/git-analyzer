@@ -22,8 +22,6 @@ security:
       accessTokenUri: https://github.com/login/oauth/access_token
       userAuthorizationUri: https://github.com/login/oauth/authorize
       clientAuthenticationScheme: form
-      # preEstablishedRedirectUri: http://localhost:8080/auth-success
-      # useCurrentUri: false
     resource:
       userInfoUri: https://api.github.com/user
 apiUrl:

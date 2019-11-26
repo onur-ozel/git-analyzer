@@ -4,4 +4,5 @@ export class AnalyzedRepo extends Repo {
   commitsCount: number;
   pullsCount: number;
   contributersCount: number;
+  analyzeDateTime: Date;
 }

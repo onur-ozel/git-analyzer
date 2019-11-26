@@ -3,6 +3,6 @@ import { ErrorHandler, Injectable } from '@angular/core';
 export class GlobalErrorHandler implements ErrorHandler {
   constructor() { }
   handleError(error) {
-    console.log(error.message);
+    throw error;
   }
 }

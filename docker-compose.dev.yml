@@ -28,7 +28,6 @@ services:
     build:
       context: backend/github-analyzer-api/.
       dockerfile: Dockerfile
-    # command: ["/wait-for-it.sh", "logger.data:9042", "--", "echo","cassandra is up"]
     ports:
       - '8080:8080'
     networks:
@@ -40,7 +39,6 @@ services:
     build:
       context: frontend/github-analyzer-ui/.
       dockerfile: Dockerfile
-    # command: ["/wait-for-it.sh", "logger.data:9042", "--", "echo","cassandra is up"]
     ports:
       - '4200:4200'
     networks:
@@ -48,6 +46,3 @@ services:
         ipv4_address: 10.20.30.104
     depends_on:
       - mysql
-# mysql --user=root --password=Strong_Passw0rd
-# use github;
-# show tables;

@@ -41,8 +41,3 @@ services:
     networks:
       scout24-network:
         ipv4_address: 10.20.30.104
-# docker login
-# docker tag {imagename} {username}/{imagename}
-# docker push {username}/{imagename}
-# docker tag scout24-home-assignment_ui onurozel41/scout24-home-assignment_ui
-# docker push onurozel41/scout24-home-assignment_ui

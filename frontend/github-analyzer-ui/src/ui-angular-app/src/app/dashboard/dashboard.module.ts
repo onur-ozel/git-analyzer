@@ -8,15 +8,18 @@ import { RepositorySearchComponent } from './repository-search/repository-search
 import { ReactiveFormsModule } from '@angular/forms';
 import { AnalyzedRepositoriesComponent } from './analyzed-repositories/analyzed-repositories.component';
 import { UserInfoComponent } from './user-info/user-info.component';
-
-
+import { SharedModule } from '../shared/shared.module';
+import { RepositorySearchResultComponent } from './repository-search/repository-search-result/repository-search-result.component';
 
 @NgModule({
   declarations: [DashboardComponent, RepositoriesComponent,
-    FollowerUsersComponent, FollowingUsersComponent, RepositorySearchComponent, AnalyzedRepositoriesComponent, UserInfoComponent],
+    FollowerUsersComponent, FollowingUsersComponent,
+    RepositorySearchComponent, AnalyzedRepositoriesComponent,
+    UserInfoComponent, RepositorySearchResultComponent],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class DashboardModule { }

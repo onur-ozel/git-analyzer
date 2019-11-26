@@ -6,7 +6,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.util.concurrent.CompletableFuture;
+import com.onur.scout24.model.AnalyzedRepo;
+import com.onur.scout24.service.AnalyzeService;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,8 +17,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-
-import com.onur.scout24.service.AnalyzeService;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(AnalyzeController.class)
@@ -29,12 +28,11 @@ public class AnalyzeControllerIntegrationTest {
 	private AnalyzeService service;
 
 	@Test
-	void testCreateGame() throws Exception {
-		given(service.getGitRepoPullCount("username", "password")).willReturn(CompletableFuture.completedFuture(3));
-		given(service.getGitRepoCommitCount("username", "password")).willReturn(CompletableFuture.completedFuture(30));
-		given(service.getGitRepoContributerCount("username", "password")).willReturn(CompletableFuture.completedFuture(19));
+	void testAnalyze() throws Exception {
+		given(service.analyze("onur-ozel", "o-bank", 5L)).willReturn(new AnalyzedRepo());
 
-		mvc.perform(post("/games").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isCreated())
-				.andExpect(jsonPath("$.commitCount", is(30))).andExpect(jsonPath("$.pullCount", is(3)));
+		mvc.perform(post("/api/v1/analyze/onur-ozel/o-bank").contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isCreated()).andExpect(jsonPath("$.commitCount", is(30)))
+				.andExpect(jsonPath("$.pullCount", is(3)));
 	}
 }

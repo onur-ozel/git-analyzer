@@ -1,1 +1,68 @@
-<p>user-info works!</p>
+<div class="container-fluid h-100 overflow-auto scout-scroll">
+  <div class="row h-100">
+    <div class="col h-100">
+      <img src="{{user?.avatarUrl}}" alt="" class="img-fluid rounded" style="max-height: 100%;">
+    </div>
+    <div class="col">
+      <div class="row">
+        <a href="{{user?.url}}">
+          <h3>
+            {{user?.name}}
+          </h3>
+        </a>
+      </div>
+      <div class="row">
+        <h5 class="text-muted font-weight-normal">
+          {{user?.login}}
+        </h5>
+      </div>
+      <div class="row" *ngIf=user?.bio>
+        <span>
+          {{user?.bio}}
+        </span>
+      </div>
+    </div>
+
+    <div class="col">
+
+      <div class="row" *ngIf=user?.company>
+        <div class="col-1 p-0 text-center">
+          <i class="fas fa-user-friends"></i>
+        </div>
+        <div class="col">
+          <span>
+            {{user?.company}}
+          </span>
+        </div>
+      </div>
+      <div class="row" *ngIf=user?.location>
+        <div class="col-1 p-0 text-center">
+          <i class="fas fa-map-marker"></i>
+        </div>
+        <div class="col">
+          <span>
+            {{user?.location}}
+          </span>
+        </div>
+      </div>
+      <div class="row" *ngIf=user?.email>
+        <div class="col-1 p-0 text-center">
+          <i class="as fa-envelope"></i>
+        </div>
+        <div class="col">
+          <span>
+            {{user?.email}}
+          </span>
+        </div>
+      </div>
+      <div class="row" *ngIf=user?.blog>
+        <div class="col-1 p-0 text-center">
+          <i class="fas fa-blog"></i>
+        </div>
+        <div class="col">
+          <a href="{{user?.blog}}">{{user?.blog}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

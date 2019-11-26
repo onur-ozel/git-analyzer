@@ -14,6 +14,7 @@ export class TopStarrredReposComponent implements OnInit {
   constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+
     this.homeService.getTopStarredRepos().subscribe((data: any) => {
       this.totalRepositoryCount = data.totalCount;
       this.repositories = data.items;

@@ -1,34 +1,36 @@
-<div class="container-fluid p-3">
-  <div class="row">
-    <div class="col-auto">
-      <app-repositories></app-repositories>
-    </div>
-    <div class="col-auto">
+<div class="container-fluid p-3 h-100">
+  <div class="row p-3 justify-content-around"
+       style="height: 30%;">
+    <div class="col-4 h-100">
       <app-user-info></app-user-info>
     </div>
-  </div>
-  <div class="row p-3">
-    <div class="col-auto">
-      <app-repository-search>
-      </app-repository-search>
-    </div>
-  </div>
-  <div class="row p-3">
-    <div class="col-auto">
+    <div class="col-3 h-100">
       <app-follower-users>
       </app-follower-users>
     </div>
-  </div>
-  <div class="row p-3">
-    <div class="col-auto">
+    <div class="col-3 h-100">
       <app-following-users>
       </app-following-users>
     </div>
   </div>
-  <div class="row p-3">
-    <div class="col-auto">
-      <app-analyzed-repositories>
-      </app-analyzed-repositories>
+  <div class="row pt-3"
+       style="height: 70%;">
+    <div class="col p-3 mx-3 h-100">
+      <app-repositories></app-repositories>
+    </div>
+    <div class="col p-3 mx-3 h-100 d-flex flex-column">
+      <div class="row">
+        <div class="col">
+          <app-repository-search>
+          </app-repository-search>
+        </div>
+      </div>
+      <div class="row h-100">
+        <div class="col h-100">
+          <app-analyzed-repositories>
+          </app-analyzed-repositories>
+        </div>
+      </div>
     </div>
   </div>
 </div>

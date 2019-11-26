@@ -15,14 +15,17 @@
       <tbody>
         <ng-container *ngFor="let repository of repositories; let i = index">
           <tr>
-            <th class="align-middle" scope="row">{{i+1}}</th>
+            <th class="align-middle"
+                scope="row">{{ i+1 }}</th>
 
             <td class="align-middle"><a href="{{repository.url}}">{{repository.fullName}}</a> <span
-                class="badge badge-primary ml-2">{{repository.starGazersCount}}</span> </td>
+                    class="badge badge-primary ml-2">{{repository.starGazersCount}}</span> </td>
 
             <td class="align-middle">
-              <img class="rounded-circle img-thumbnail mr-2" style="width: 40px;height: 40px;"
-                src="{{repository.owner.avatarUrl}}" alt="">
+              <img class="rounded-circle img-thumbnail mr-2"
+                   style="width: 40px;height: 40px;"
+                   src="{{repository.owner.avatarUrl}}"
+                   alt="">
               <a href="{{repository.owner.url}}">{{repository.owner.login}}
               </a>
             </td>
@@ -30,8 +33,5 @@
         </ng-container>
       </tbody>
     </table>
-  </div>
-  <div class="card-footer text-muted">
-    2019.08.03 15:03
   </div>
 </div>

@@ -21,28 +21,54 @@ public class GitHubController {
   @Autowired
   GitHubService service;
 
-  @Cacheable(value = "repos")
+  @RequestMapping(value = "/user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  public UserDto getUserInfo(Principal principal) {
+
+    UserDto response = service.getUserInfo(principal.getName());
+
+    return response;
+  }
+
+  @RequestMapping(value = "/readme", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+  public String getReadme(@RequestParam(name = "userName", required = true) String userName,
+      @RequestParam(name = "repoName", required = true) String repoName) {
+
+    String response = service.getReadme(userName, repoName);
+
+    return response;
+  }
+
   @RequestMapping(value = "/repos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public RepoDto[] getRepos(Principal principal) {
-    return service.getRepos(principal.getName());
+
+    RepoDto[] response = service.getRepos(principal.getName());
+
+    return response;
+  }
+
+  @RequestMapping(value = "/followers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  public UserDto[] getFollowers(Principal principal) {
+
+    UserDto[] response = service.getFollowerUsers(principal.getName());
+
+    return response;
+  }
+
+  @RequestMapping(value = "/followings", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  public UserDto[] getFollowings(Principal principal) {
+
+    UserDto[] response = service.getFollowingUsers(principal.getName());
+
+    return response;
   }
 
   @Cacheable(value = "search-repo")
   @RequestMapping(value = "/search-repo", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public SearchRepoResponse getRepos(@RequestParam(name = "userName", required = true) String userName,
       @RequestParam(name = "repoName", required = true) String repoName) {
-    return service.searchRepositories(userName, repoName);
-  }
 
-  @Cacheable(value = "followers")
-  @RequestMapping(value = "/followers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public UserDto[] getFollowers(Principal principal) {
-    return service.getFollowerUsers(principal.getName());
-  }
+    SearchRepoResponse response = service.searchRepositories(userName, repoName);
 
-  @Cacheable(value = "followings")
-  @RequestMapping(value = "/followings", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public UserDto[] getFollowings(Principal principal) {
-    return service.getFollowingUsers(principal.getName());
+    return response;
   }
 }
