@@ -1,20 +1,21 @@
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\service\StatisticService.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\SearchUserResponse.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\config\exception\ApiError.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\GitHubAnalyzerApp.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\BaseDto.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\service\AnalyzedItemService.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\controller\GitHubController.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\config\exception\GlobalExceptionHandler.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\SearchIssueResponse.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\model\AnalyzedRepository.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\IssueDto.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\repository\AnalyzedItemRepository.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\SearchResponseBase.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\controller\StatisticsController.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\config\SecurityConfig.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\controller\AnalyzeController.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\RepositoryDto.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\UserDto.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\SearchRepositoryResponse.java
-C:\Users\Onur\Desktop\Projects\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\service\GitHubService.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\controller\AnalyzeController.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\controller\AuthenticationController.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\model\AnalyzedRepo.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\exception\GlobalExceptionHandler.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\SearchUserResponse.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\service\GitHubService.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\service\StatisticService.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\SearchIssueResponse.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\exception\ApiError.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\repository\AnalyzeRepository.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\RepoDto.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\config\AsyncConfiguration.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\GitHubAnalyzerApi.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\IssueDto.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\UserDto.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\SearchResponseBase.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\service\AnalyzeService.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\controller\GitHubController.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\controller\StatisticsController.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\BaseDto.java
+C:\Users\Onur\Desktop\home assignment\scout24-home-assignment\backend\github-analyzer-api\src\main\java\com\onur\scout24\dto\SearchRepoResponse.java

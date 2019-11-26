@@ -1,0 +1,5 @@
+com\onur\scout24\controller\AnalyzeControllerIntegrationTest.class
+com\onur\scout24\service\AnalyzedItemServiceIntegrationTest.class
+com\onur\scout24\repository\AnalyzedItemRepositoryIntegrationTest.class
+com\onur\scout24\service\TestAnalyzeService.class
+com\onur\scout24\service\AnalyzedItemServiceIntegrationTest$AnalyzedItemServiceTestContextConfiguration.class

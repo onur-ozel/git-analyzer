@@ -12,9 +12,17 @@
     },
     {
       "type": "java",
-      "name": "Debug (Launch)-App",
+      "name": "Debug (Launch)-GitHubAnalyzerApi<github-analyzer-api>",
       "request": "launch",
-      "mainClass": "com.onur.scout24.App"
+      "mainClass": "com.onur.scout24.GitHubAnalyzerApi",
+      "projectName": "github-analyzer-api"
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)-GitHubAnalyzerUI<github-analyzer-ui>",
+      "request": "launch",
+      "mainClass": "com.onur.scout24.GitHubAnalyzerUI",
+      "projectName": "github-analyzer-ui"
     }
   ]
 }

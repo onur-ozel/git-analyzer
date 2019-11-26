@@ -4,10 +4,10 @@ spring:
   jackson.serialization.indent_output: true
   cache.type: redis
   redis:
-    host: localhost
+    host: 10.20.30.101
     port: 6379
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/github?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT
+    url: jdbc:mysql://10.20.30.102:3306/github?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT
     username: root
     password: Strong_Passw0rd
   jpa:

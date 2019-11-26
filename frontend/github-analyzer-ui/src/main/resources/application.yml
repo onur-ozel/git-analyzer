@@ -1,0 +1,24 @@
+server.port: 4200
+
+spring:
+  aop:
+    proxy-target-class: true
+security:
+  user:
+    password: none
+  ignored:
+    - '*.bundle.*'
+  oauth2:
+    oauth2.resource.filter-order: 3
+    client:
+      accessTokenUri: https://github.com/login/oauth/access_token
+      userAuthorizationUri: https://github.com/login/oauth/authorize
+      clientId: e46ca26359ef71b5285c
+      clientSecret: 043750121445470d60ad1b43e85b94376f48062b
+    resource:
+      userInfoUri: https://api.github.com/user
+zuul:
+  routes:
+    resource:
+      path: /github/**
+      url: http://10.20.30.103:8080

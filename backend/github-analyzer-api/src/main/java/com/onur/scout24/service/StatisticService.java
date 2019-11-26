@@ -1,7 +1,7 @@
 package com.onur.scout24.service;
 
 import com.onur.scout24.dto.SearchIssueResponse;
-import com.onur.scout24.dto.SearchRepositoryResponse;
+import com.onur.scout24.dto.SearchRepoResponse;
 import com.onur.scout24.dto.SearchUserResponse;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -17,10 +17,9 @@ public class StatisticService {
     @Value("${apiUrl.top-followed-users}")
     private String topFollowedUsersUri;
 
-    public SearchRepositoryResponse topStarredRepos() {
+    public SearchRepoResponse topStarredRepos() {
         final RestTemplate restTemplate = new RestTemplate();
-        final SearchRepositoryResponse response = restTemplate.getForObject(topStarredReposUri,
-                SearchRepositoryResponse.class);
+        final SearchRepoResponse response = restTemplate.getForObject(topStarredReposUri, SearchRepoResponse.class);
 
         return response;
     }
