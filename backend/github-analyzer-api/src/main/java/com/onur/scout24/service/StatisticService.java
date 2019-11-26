@@ -19,22 +19,19 @@ public class StatisticService {
 
     public SearchRepoResponse getTopStarredRepos() {
         RestTemplate restTemplate = new RestTemplate();
-        SearchRepoResponse response = restTemplate.getForObject(topStarredReposUri, SearchRepoResponse.class);
 
-        return response;
+        return restTemplate.getForObject(topStarredReposUri, SearchRepoResponse.class);
     }
 
     public SearchIssueResponse getTopReactedIssues() {
         RestTemplate restTemplate = new RestTemplate();
-        SearchIssueResponse response = restTemplate.getForObject(topReactedIssuesUri, SearchIssueResponse.class);
 
-        return response;
+        return restTemplate.getForObject(topReactedIssuesUri, SearchIssueResponse.class);
     }
 
     public SearchUserResponse getTopFollowedUsers() {
         RestTemplate restTemplate = new RestTemplate();
-        SearchUserResponse response = restTemplate.getForObject(topFollowedUsersUri, SearchUserResponse.class);
 
-        return response;
+        return restTemplate.getForObject(topFollowedUsersUri, SearchUserResponse.class);
     }
 }

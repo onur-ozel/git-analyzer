@@ -24,42 +24,32 @@ public class GitHubController {
   @RequestMapping(value = "/user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public UserDto getUserInfo(Principal principal) {
 
-    UserDto response = service.getUserInfo(principal.getName());
-
-    return response;
+    return service.getUserInfo(principal.getName());
   }
 
   @RequestMapping(value = "/readme", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
   public String getReadme(@RequestParam(name = "userName", required = true) String userName,
       @RequestParam(name = "repoName", required = true) String repoName) {
 
-    String response = service.getReadme(userName, repoName);
-
-    return response;
+    return service.getReadme(userName, repoName);
   }
 
   @RequestMapping(value = "/repos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public RepoDto[] getRepos(Principal principal) {
 
-    RepoDto[] response = service.getRepos(principal.getName());
-
-    return response;
+    return service.getRepos(principal.getName());
   }
 
   @RequestMapping(value = "/followers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public UserDto[] getFollowers(Principal principal) {
 
-    UserDto[] response = service.getFollowerUsers(principal.getName());
-
-    return response;
+    return service.getFollowerUsers(principal.getName());
   }
 
   @RequestMapping(value = "/followings", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public UserDto[] getFollowings(Principal principal) {
 
-    UserDto[] response = service.getFollowingUsers(principal.getName());
-
-    return response;
+    return service.getFollowingUsers(principal.getName());
   }
 
   @Cacheable(value = "search-repo")
@@ -67,8 +57,6 @@ public class GitHubController {
   public SearchRepoResponse getRepos(@RequestParam(name = "userName", required = true) String userName,
       @RequestParam(name = "repoName", required = true) String repoName) {
 
-    SearchRepoResponse response = service.searchRepositories(userName, repoName);
-
-    return response;
+    return service.searchRepositories(userName, repoName);
   }
 }

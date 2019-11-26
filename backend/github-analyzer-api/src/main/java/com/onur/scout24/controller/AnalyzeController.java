@@ -42,15 +42,12 @@ public class AnalyzeController {
     Number userId = (Number) (((Map<String, Object>) ((OAuth2Authentication) principal).getUserAuthentication()
         .getDetails()).get("id"));
 
-    Iterable<AnalyzedRepo> response = service.getAll(userId.longValue());
-    return response;
+    return service.getAll(userId.longValue());
   }
 
   @Cacheable(value = "analyzed_repository", key = "#id")
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public AnalyzedRepo getById(@PathVariable(name = "id", required = true) Long id) {
-    AnalyzedRepo repo = service.getById(id);
-
-    return repo;
+    return service.getById(id);
   }
 }

@@ -22,26 +22,20 @@ public class StatisticsController {
   @RequestMapping(value = "/top-starred-repos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public SearchRepoResponse getTopStarredRepos() {
 
-    SearchRepoResponse response = service.getTopStarredRepos();
-
-    return response;
+    return service.getTopStarredRepos();
   }
 
   @Cacheable(value = "top-reacted-issues")
   @RequestMapping(value = "/top-reacted-issues", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public SearchIssueResponse getTopReactedIssues() {
 
-    SearchIssueResponse response = service.getTopReactedIssues();
-
-    return response;
+    return service.getTopReactedIssues();
   }
 
   @Cacheable(value = "top-followed-users")
   @RequestMapping(value = "/top-followed-users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public SearchUserResponse getTopFollowedUsers() {
 
-    SearchUserResponse response = service.getTopFollowedUsers();
-
-    return response;
+    return service.getTopFollowedUsers();
   }
 }
