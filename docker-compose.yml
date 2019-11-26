@@ -26,6 +26,7 @@ services:
         ipv4_address: 10.20.30.102
   api:
     image: onurozel41/scout24-home-assignment_api
+    restart: always
     ports:
       - '8080:8080'
     networks:
@@ -36,6 +37,7 @@ services:
       - redis
   ui:
     image: onurozel41/scout24-home-assignment_ui
+    restart: always
     ports:
       - '4200:4200'
     networks:

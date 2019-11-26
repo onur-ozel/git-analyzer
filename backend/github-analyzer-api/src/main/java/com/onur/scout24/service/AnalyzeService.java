@@ -32,9 +32,7 @@ public class AnalyzeService {
         CompletableFuture<Integer> commitCountFuture = getGitRepoCommitCount(userName, repoName);
         CompletableFuture<Integer> contributerCountFuture = getGitRepoContributerCount(userName, repoName);
 
-        AnalyzedRepo analyzedRepo = new AnalyzedRepo();
-
-        analyzedRepo = gitRepoDetail.get();
+        AnalyzedRepo analyzedRepo = gitRepoDetail.get();
         analyzedRepo.setPullsCount(pullCountFuture.get());
         analyzedRepo.setCommitsCount(commitCountFuture.get());
         analyzedRepo.setContributersCount(contributerCountFuture.get());
@@ -53,7 +51,7 @@ public class AnalyzeService {
 
         RepoDto response = restTemplate.getForObject(detailRepoUri, RepoDto.class);
         ModelMapper modelMapper = new ModelMapper();
-        // modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+
         AnalyzedRepo analyzedRepo = modelMapper.map(response, AnalyzedRepo.class);
 
         return CompletableFuture.completedFuture(analyzedRepo);
@@ -93,7 +91,7 @@ public class AnalyzeService {
         return CompletableFuture.completedFuture(contributers.length);
     }
 
-    public void add(AnalyzedRepo repo) {
+    private void add(AnalyzedRepo repo) {
         repository.save(repo);
     }
 

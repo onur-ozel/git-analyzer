@@ -25,9 +25,8 @@ public class GitHubService {
                 .buildAndExpand(gitHubApiUrl, userName).toUri();
 
         RestTemplate restTemplate = new RestTemplate();
-        UserDto response = restTemplate.getForObject(repoUri, UserDto.class);
 
-        return response;
+        return restTemplate.getForObject(repoUri, UserDto.class);
     }
 
     public String getReadme(String userName, String repoName) {
@@ -51,9 +50,8 @@ public class GitHubService {
                 .buildAndExpand(gitHubApiUrl, userName).toUri();
 
         RestTemplate restTemplate = new RestTemplate();
-        RepoDto[] response = restTemplate.getForObject(repoUri, RepoDto[].class);
 
-        return response;
+        return restTemplate.getForObject(repoUri, RepoDto[].class);
     }
 
     public UserDto[] getFollowingUsers(String userName) {
@@ -61,9 +59,8 @@ public class GitHubService {
                 .buildAndExpand(gitHubApiUrl, userName).toUri();
 
         RestTemplate restTemplate = new RestTemplate();
-        UserDto[] response = restTemplate.getForObject(followingUri, UserDto[].class);
 
-        return response;
+        return restTemplate.getForObject(followingUri, UserDto[].class);
     }
 
     public UserDto[] getFollowerUsers(String userName) {
@@ -71,9 +68,8 @@ public class GitHubService {
                 .buildAndExpand(gitHubApiUrl, userName).toUri();
 
         RestTemplate restTemplate = new RestTemplate();
-        UserDto[] response = restTemplate.getForObject(followerUri, UserDto[].class);
 
-        return response;
+        return restTemplate.getForObject(followerUri, UserDto[].class);
     }
 
     public SearchRepoResponse searchRepositories(String userName, String repoName) {
@@ -83,9 +79,8 @@ public class GitHubService {
                 .buildAndExpand(gitHubApiUrl, repoName, userName).toUri();
 
         RestTemplate restTemplate = new RestTemplate();
-        SearchRepoResponse response = restTemplate.getForObject(searchRepoUri, SearchRepoResponse.class);
 
-        return response;
+        return restTemplate.getForObject(searchRepoUri, SearchRepoResponse.class);
     }
 
 }
