@@ -37,7 +37,6 @@ public class GitHubService {
     }
 
     public UserDto[] getFollowerUsers(String userName) {
-
         URI followerUri = UriComponentsBuilder.fromUriString("{apiUrl}/users/{userName}/followers")
                 .buildAndExpand(gitHubApiUrl, userName).toUri();
 

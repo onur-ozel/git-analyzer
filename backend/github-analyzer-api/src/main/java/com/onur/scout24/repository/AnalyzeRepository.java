@@ -10,5 +10,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AnalyzeRepository extends PagingAndSortingRepository<AnalyzedRepo, Long> {
   Page<AnalyzedRepo> findByUserId(Long userId, Pageable pageable);
-
 }

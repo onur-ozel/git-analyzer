@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthenticationController {
   @RequestMapping(value = "/user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public Principal user(Principal user) {
+
     return user;
   }
 }

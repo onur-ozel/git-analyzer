@@ -1,6 +1,7 @@
 package com.onur.scout24.controller;
 
 import java.security.Principal;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -9,10 +10,8 @@ import com.onur.scout24.service.AnalyzeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,11 +24,14 @@ public class AnalyzeController {
   @Autowired
   AnalyzeService service;
 
-  @CrossOrigin(allowedHeaders = "*")
   @RequestMapping(value = "/{userName}/{repoName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public AnalyzedRepo analyze(Principal principal, @PathVariable(name = "userName", required = true) String userName,
       @PathVariable(name = "repoName", required = true) String repoName)
       throws InterruptedException, ExecutionException {
+
+    @SuppressWarnings("unchecked")
+    Number userId = (Number) (((Map<String, Object>) ((OAuth2Authentication) principal).getUserAuthentication()
+        .getDetails()).get("id"));
 
     CompletableFuture<AnalyzedRepo> gitRepoDetail = service.getGitRepoDetail(userName, repoName);
     CompletableFuture<Integer> pullCountFuture = service.getGitRepoPullCount(userName, repoName);
@@ -42,23 +44,28 @@ public class AnalyzeController {
     repoDetail.setPullsCount(pullCountFuture.get());
     repoDetail.setCommitsCount(commitCountFuture.get());
     repoDetail.setContributersCount(contributerCountFuture.get());
-    repoDetail.setUserId(1L);
+    repoDetail.setUserId(userId.longValue());
     service.add(repoDetail);
 
     return repoDetail;
   }
 
   @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Iterable<AnalyzedRepo>> getAll() {
-    Iterable<AnalyzedRepo> response = service.getAll();
-    return new ResponseEntity<>(response, HttpStatus.OK);
+  public Iterable<AnalyzedRepo> getAll(Principal principal) {
+
+    @SuppressWarnings("unchecked")
+    Number userId = (Number) (((Map<String, Object>) ((OAuth2Authentication) principal).getUserAuthentication()
+        .getDetails()).get("id"));
+
+    Iterable<AnalyzedRepo> response = service.getAll(userId.longValue());
+    return response;
   }
 
   @Cacheable(value = "analyzed_repository", key = "#id")
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<AnalyzedRepo> getById(@PathVariable(name = "id", required = true) Long id) {
+  public AnalyzedRepo getById(@PathVariable(name = "id", required = true) Long id) {
     AnalyzedRepo repo = service.getById(id);
 
-    return new ResponseEntity<>(repo, HttpStatus.OK);
+    return repo;
   }
 }

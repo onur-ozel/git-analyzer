@@ -81,7 +81,7 @@ public class AnalyzeService {
         return repository.findOne(id);
     }
 
-    public Iterable<AnalyzedRepo> getAll() {
-        return repository.findByUserId(1L, new PageRequest(0, 20, Sort.Direction.DESC, "createDateTime"));
+    public Iterable<AnalyzedRepo> getAll(Long userId) {
+        return repository.findByUserId(userId, new PageRequest(0, 20, Sort.Direction.DESC, "createDateTime"));
     }
 }
